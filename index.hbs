@@ -1,20 +1,6 @@
 {{> head}}
 
-<div class="container">
-
-    <header class="top">
-        <a class="logo" href="{{@website.url}}">
-            {{#if @website.logo}}
-                <img src="{{@website.logo}}" alt="{{@website.name}}">
-            {{else}}
-                {{@website.name}}
-            {{/if}}
-        </a>
-        {{> menu menus.mainMenu}}
-    </header>
-
     <main class="main main--grid {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
-
         {{!-- "isFirstPage" global variable is used here; with this when pagination is displayed the second and following pages of posts are displayed without a hero and featured post section. --}}
         {{#if @renderer.isFirstPage}}
             {{#checkIfAny @config.custom.uploadHero @config.custom.textHero}}
@@ -35,7 +21,7 @@
                             {{{@config.custom.textHero}}}
                         </div>
                     {{/if}}
-                </div>
+                </div>{{!-- .hero --}}
             {{/checkIfAny}}
 
             {{#if featuredPosts}}
@@ -72,13 +58,12 @@
                             </article>
                         {{/checkIf}}
                     {{/each}}
-                </div>
+                </div>{{!-- .featured-posts --}}
             {{/if}}
         {{/if}}
 
         {{#each posts}}
             <article class="article">
-
                 {{#featuredImage}}
                     {{#if url}}
                         <a href="{{../url}}" class="card__image">
@@ -97,10 +82,9 @@
                     </h2>
                     {{#if excerpt}}
                         <p>{{{excerpt}}}</p>
-                    {{/if}}				
+                    {{/if}}
 
                     <p class="article__meta u-small">
-						
                         {{#author}}
                             <a href="{{url}}" title="{{name}}">
                                 {{#if avatar}}
@@ -109,22 +93,20 @@
                                 {{name}}
                             </a>
                         {{/author}}
-						
+
                         <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
                             {{date createdAt @config.custom.formatDate}}
                         </time>
                     </p>
-
                 </header>
             </article>
         {{/each}}
 
         {{> pagination}}
-
     </main>
 
-    {{#if @config.custom.sidebar}}
-        {{> sidebar}}
-    {{/if}}
+{{#if @config.custom.sidebar}}
+    {{> sidebar}}
+{{/if}}
 
-    {{> footer}}
+{{> footer}}

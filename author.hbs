@@ -1,20 +1,6 @@
 {{> head}}
 
-<div class="container">
-
-    <header class="top">
-        <a class="logo" href="{{@website.url}}">
-            {{#if @website.logo}}
-                <img src="{{@website.logo}}" alt="{{@website.name}}">
-            {{else}}
-                {{@website.name}}
-            {{/if}}
-        </a>
-        {{> menu menus.mainMenu}}
-    </header>
-
     <main class="main main--grid {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
-
         <div class="page-header page-header--listing author">
             {{#author}}
                 {{#if avatar}}
@@ -30,11 +16,10 @@
                     </p>
                 {{/if}}
             {{/author}}
-        </div>
+        </div>{{!-- .page-header --}}
 
         {{#each posts}}
             <article class="article">
-
                 {{#featuredImage}}
                     {{#if url}}
                         <a href="{{../url}}" class="card__image">
@@ -57,7 +42,7 @@
 
                     {{#checkIfAny @config.custom.frontAuthor @config.custom.frontDate}}
                         <p class="article__meta u-small">
-							
+
                             {{#if @config.custom.frontAuthor}}
                                 {{#author}}
                                     <a href="{{url}}" title="{{name}}">
@@ -68,26 +53,24 @@
                                     </a>
                                 {{/author}}
                             {{/if}}
-							
+
                             {{#if @config.custom.frontDate}}
                                 <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
                                     {{date createdAt @config.custom.formatDate}}
                                 </time>
                             {{/if}}
-							
+
                         </p>
                     {{/checkIfAny}}
-
                 </header>
             </article>
         {{/each}}
 
         {{> pagination}}
-
     </main>
 
-   {{#if @config.custom.sidebar}}
-        {{> sidebar}}
-	 {{/if}}
-	
-    {{> footer}}
+{{#if @config.custom.sidebar}}
+    {{> sidebar}}
+{{/if}}
+
+{{> footer}}

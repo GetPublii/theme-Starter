@@ -1,5 +1,4 @@
     <div class="sidebar">
-
         {{!-- We do not provide an if-conditional {{#if siteOwner}} here as an owner always exists. Instead, we can use the on/off if-conditional {{#if @config.custom.owner}} within this section of the theme settings. --}}
         {{#if @config.custom.owner}}
             {{#siteOwner}}
@@ -99,5 +98,4 @@
                 {{/checkIf}}
             </section>
         {{/if}}
-
-    </div>
+    </div>{{!-- .sidebar --}}

@@ -1,28 +1,14 @@
 {{> head}}
 
-<div class="container">
-
-    <header class="top">
-        <a class="logo" href="{{@website.url}}">
-            {{#if @website.logo}}
-                <img src="{{@website.logo}}" alt="{{@website.name}}">
-            {{else}}
-                {{@website.name}}
-            {{/if}}
-        </a>
-        {{> menu menus.mainMenu}}
-    </header>
-
-    <main class="main {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}"> {{!-- We use {{#checkIfNone}}
-        here because if a sidebar is disabled the main container should stretch to full width. So, if there is no sidebar the main--full class is added. --}}       
-
+    {{!-- We use #checkIfNone here because if a sidebar is disabled the main container should stretch to full width. So, if there is no sidebar the main--full class is added. --}}
+    <main class="main {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
         {{#post}}
             <article class="post">
                 <header>
                     <h1>
                         {{title}}
                     </h1>
-					
+
                     {{#checkIfAny @config.post.displayCategoryName @config.post.displayAuthor @config.post.displayDate}}
                         <ul class="post__meta u-small">
                             {{#if @config.post.displayAuthor}}
@@ -51,7 +37,9 @@
                                     </li>
                                 {{/if}}
                             {{/if}}
-                            {{#isFeatured}} {{!-- If a post is marked as Featured, display the following code --}}       
+
+                            {{!-- If a post is marked as Featured, display the following code --}}
+                            {{#isFeatured}}
                                 <li>
                                     <svg class="u-icon" aria-hidden="true">
                                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#featured"/>
@@ -88,7 +76,6 @@
 
                 {{#checkIfAny @config.post.displayLastUpdatedDate @config.post.displayShareButtons @config.post.displayTags @config.post.displayAuthorBio @config.post.displayPostNavigation @config.post.displayRelatedPosts}}
                     <footer class="post__footer">
-
                         {{#if @config.post.displayLastUpdatedDate}}
                             {{#if modifiedAt}}
                                 <p class="post__last-updated">
@@ -229,11 +216,10 @@
                 {{> disqus}}
             </div>
         {{/if}}
-
     </main>
 
-    {{#if @config.custom.sidebar}}
-        {{> sidebar}}
-    {{/if}}
+{{#if @config.custom.sidebar}}
+    {{> sidebar}}
+{{/if}}
 
-    {{> footer}}
+{{> footer}}

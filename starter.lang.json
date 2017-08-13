@@ -1,69 +1,67 @@
 {
-	"partials": {		
-		"disqus": {
-			"noscript1": "Please enable JavaScript to view the",
-			"noscript2": "comments powered by Disqus."
-		},
-		"menu": {
-			"label": "Menu"
-		},
-		"pagination": {
-			"prev": "Previous",
-			"next": "Next"
-		},
-		"shareButtons": {
-			"shareWithFacebook": "Share with Facebook",
-			"shareWithTwitter": "Share with Twitter",
-			"shareWithGooglePlus": "Share with Google Plus",
-			"shareWithPinterest": "Share with Pinterest",
-			"shareWithStumbleUpon": "Share with StumbleUpon",
-			"shareWithLinkedIn": "Share with LinkedIn",
-			"shareWithBuffer": "Share with Buffer"
-		}
-	},	
-	
-	"sidebar": {
-		"owner": "Owner",
-		"authors": "Authors",
-		"authorsPost": "Post: ",
-		"tags": "Tags",
-		"search": "Search",
-		"searchPlaceholder": "search...",
-		"newsletter": "Newsletter",
-		"newsletterDesc": "Sign up to receive email updates and to hear what's going on with us!",
-		"newsletterSubscribe": "subscribe"
-	},
-	
-	"post": {
-		"publishedOn": "Published on",
-		"share": "Share this: ",
-		"tags": "Tags: ",
-		"viewAuthorPosts": "View all posts",		
-		"relatedPosts": "Related posts",
-		"lastUpdatedDate": "This article was updated on",
-		"comments": "Comments",
-		"previousPost": "Previous Post",
-		"nextPost": "Next Post"
-	},
-	
-	"listing": {
-		"post": {
-			"1": "post",
-			"default": "posts"
-		},
-		"featuredPost": "Featured"
-	},
-	
-	"error": {
-		"404": "404",
-		"description": " The page you were looking for appears to have been moved, deleted or does not exist. You could go back to where you were or head straight to our home page."
-	},
-	
-	"search": {
-		"title": "Search",
-		"description": "This page uses Google Custom Search, to configure it read the following article: <a href=\"https://getpublii.com/docs/search-configuration.html\" target=\"_blank\">https://getpublii.com/docs/search-configuration.html</a>",
-		"placeholder": "search..."
-		
-	}
-	
+    "partials": {
+        "disqus": {
+            "noscript1": "Please enable JavaScript to view the",
+            "noscript2": "comments powered by Disqus."
+        },
+        "menu": {
+            "label": "Menu"
+        },
+        "pagination": {
+            "prev": "Previous",
+            "next": "Next"
+        },
+        "shareButtons": {
+            "shareWithFacebook": "Share with Facebook",
+            "shareWithTwitter": "Share with Twitter",
+            "shareWithGooglePlus": "Share with Google Plus",
+            "shareWithPinterest": "Share with Pinterest",
+            "shareWithStumbleUpon": "Share with StumbleUpon",
+            "shareWithLinkedIn": "Share with LinkedIn",
+            "shareWithBuffer": "Share with Buffer"
+        }
+    },
+
+    "sidebar": {
+        "owner": "Owner",
+        "authors": "Authors",
+        "authorsPost": "Post: ",
+        "tags": "Tags",
+        "search": "Search",
+        "searchPlaceholder": "search...",
+        "newsletter": "Newsletter",
+        "newsletterDesc": "Sign up to receive email updates and to hear what's going on with us!",
+        "newsletterSubscribe": "subscribe"
+    },
+
+    "post": {
+        "publishedOn": "Published on",
+        "share": "Share this: ",
+        "tags": "Tags: ",
+        "viewAuthorPosts": "View all posts",
+        "relatedPosts": "Related posts",
+        "lastUpdatedDate": "This article was updated on",
+        "comments": "Comments",
+        "previousPost": "Previous Post",
+        "nextPost": "Next Post"
+    },
+
+    "listing": {
+        "post": {
+            "1": "post",
+            "default": "posts"
+        },
+        "featuredPost": "Featured"
+    },
+
+    "error": {
+        "404": "404",
+        "description": " The page you were looking for appears to have been moved, deleted or does not exist. You could go back to where you were or head straight to our home page."
+    },
+
+    "search": {
+        "title": "Search",
+        "description": "This page uses Google Custom Search, to configure it read the following article: <a href=\"https://getpublii.com/docs/search-configuration.html\" target=\"_blank\">https://getpublii.com/docs/search-configuration.html</a>",
+        "placeholder": "search..."
+    }
 }

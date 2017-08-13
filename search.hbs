@@ -1,20 +1,6 @@
 {{> head}}
 
-<div class="container">
-	
-    <header class="top">
-        <a class="logo" href="{{@website.url}}">
-            {{#if @website.logo}}
-                <img src="{{@website.logo}}" alt="{{@website.name}}">
-            {{else}}
-                {{@website.name}}
-            {{/if}}
-        </a>
-        {{> menu menus.mainMenu}}
-    </header>
-
     <main class="main {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
-		
         <div class="page-header search">
             <h1 class="page-header__title">
                 {{ translate 'search.title' }}
@@ -22,14 +8,16 @@
             <p class="page-header__desc">
                 {{ translate 'search.description' }}
             </p>
-        </div>
+        </div>{{!-- .page-header --}}
+
         <form action="{{@website.searchUrl}}" class="search__form">
             <input
                 type="search"
                 name="{{@config.custom.searchParam}}"
                 placeholder="{{ translate 'search.placeholder' }}"
-				class="search__input"/>
+                class="search__input"/>
         </form>
+
         <script>
             (function () {
                 var cx = '{{@config.custom.searchId}}';
@@ -41,12 +29,12 @@
                 s.parentNode.insertBefore(gcse, s);
             })();
         </script>
+
         <gcse:searchresults-only></gcse:searchresults-only>
-		
     </main>
 
-   {{#if @config.custom.sidebar}}
-        {{> sidebar}}
-	 {{/if}}
-	
-    {{> footer}}
+{{#if @config.custom.sidebar}}
+    {{> sidebar}}
+{{/if}}
+
+{{> footer}}

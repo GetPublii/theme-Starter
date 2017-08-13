@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {{#if title}}
-            <title>{{title}}</title>
-        {{else}}
-            <title>{{@website.name}}</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{#if title}}
+        <title>{{title}}</title>
+    {{else}}
+        <title>{{@website.name}}</title>
+    {{/if}}
+    {{metaDescription}}
+    {{metaRobots}}
+    {{canonicalLink}}
+    {{ampLink}}
+    {{feedLink}}
+    {{socialMetaTags}}
+    {{#if @pagination}}
+        {{#if @pagination.previousPage}}
+            <link rel="prev" href="{{@pagination.previousPageUrl }}">
         {{/if}}
-        {{metaDescription}}
-        {{metaRobots}}
-        {{canonicalLink}}
-        {{ampLink}}
-        {{feedLink}}
-        {{socialMetaTags}}
-        {{#if @pagination}}
-            {{#if @pagination.previousPage}}
-                <link rel="prev" href="{{@pagination.previousPageUrl }}">
-            {{/if}}
-            {{#if @pagination.nextPage}}
-                <link rel="next" href="{{@pagination.nextPageUrl }}">
-            {{/if}}
+        {{#if @pagination.nextPage}}
+            <link rel="next" href="{{@pagination.nextPageUrl }}">
         {{/if}}
-         <link rel="stylesheet" href="{{css "style.css" }}">
-        {{jsonLD}}
-        {{{@headCustomCode}}}
-    </head>
-    <body>
-        {{{@bodyCustomCode}}}
+    {{/if}}
+     <link rel="stylesheet" href="{{css "style.css" }}">
+    {{jsonLD}}
+    {{{@headCustomCode}}}
+</head>
+<body>
+    {{{@bodyCustomCode}}}
 
+    <div class="container">
+        <header class="top">
+            <a class="logo" href="{{@website.url}}">
+                {{#if @website.logo}}
+                    <img src="{{@website.logo}}" alt="{{@website.name}}">
+                {{else}}
+                    {{@website.name}}
+                {{/if}}
+            </a>
+            
+            {{> menu menus.mainMenu}}
+        </header>

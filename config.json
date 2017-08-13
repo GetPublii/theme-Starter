@@ -1,988 +1,970 @@
 {
-	"name": "Starter",
-	"version": "1.0.0.0",
-	"author": "TidyCustoms <https://tidycustoms.net/>",
-	"menus": {
-		"mainMenu": "Main menu"
-	},
-	"renderer": {
-		"relatedPostsNumber": 3,
-		"createSearchPage": true,
-		"create404page": true
-	},
-	"config": [
-
-		{
-			"name": "postsPerPage",
-			"label": "Posts per page",
-			"value": 4,
-			"type": "number"
-		},
-		{
-			"name": "tagsPostsPerPage",
-			"label": "Tags posts per page",
-			"value": 8,
-			"type": "number"
-		},
-		{
-			"name": "authorsPostsPerPage",
-			"label": "Authors posts per page",
-			"value": 8,
-			"type": "number"
-		},
-		{
-			"name": "excerptLength",
-			"label": "Excerpt length",
-			"value": 15,
-			"type": "number"
-		},
-		{
-			"name": "logo",
-			"label": "Website logo",
-			"value": "",
-			"type": "upload",
-			"upload": true
-		}
-	],
-	"customConfig": [
-
-		{
-			"name": "mainWidth",
-			"label": "Main column width",
-			"group": "Layout",
-			"note": "Use of REM units recommended but you can also use others (px, vw, %)",
-			"value": "42rem",
-			"type": "text"
-		},
-		{
-			"name": "sidebarWidth",
-			"label": "Sidebar width",
-			"group": "Layout",
-			"note": "Use of REM units recommended but you can also use others (px, vw, %)",
-			"value": "20rem",
-			"type": "text"
-		},
-
-		{
-			"name": "sidebar",
-			"label": "Sidebar",
-			"group": "Sidebar",
-			"value": true,
-			"type": "checkbox"
-		},
-		
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": " ",
-			"group": "Sidebar",
-			"size": "small",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		
-		{
-			"name": "owner",
-			"label": "Owner",
-			"group": "Sidebar",
-			"value": true,
-			"type": "checkbox",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": " ",
-			"group": "Sidebar",
-			"size": "small",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "authors",
-			"label": "Authors",
-			"group": "Sidebar",
-			"value": true,
-			"type": "checkbox",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "authorsAmount",
-			"label": "Max authors",
-			"group": "Sidebar",
-			"value": "5",
-			"type": "text",
-			"dependencies": [{
-				"field": "authors",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": " ",
-			"group": "Sidebar",
-			"size": "small",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "tags",
-			"label": "Tags",
-			"group": "Sidebar",
-			"value": true,
-			"type": "checkbox",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "tagsAmount",
-			"label": "Max tags",
-			"group": "Sidebar",
-			"value": "5",
-			"type": "text",
-			"dependencies": [{
-				"field": "tags",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": " ",
-			"group": "Sidebar",
-			"size": "small",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		
-		{
-			"name": "search",
-			"label": "Search",
-			"group": "Sidebar",
-			"note": "Do not forget to configure the Search in Additional tab.",
-			"value": true,
-			"type": "checkbox",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": " ",
-			"group": "Sidebar",
-			"size": "small",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "newsletter",
-			"label": "Newsletter",
-			"group": "Sidebar",
-			"value": true,
-			"type": "checkbox",
-			"dependencies": [{
-				"field": "sidebar",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "newsletterForm",
-			"label": "Signup Form",
-			"group": "Sidebar",
-			"value": "",
-			"type": "select",
-			"options": [
-				{
-					"label": "Mailchimp",
-					"value": "mailchimp"
-				},
-				{
-					"label": "HTML newsletter code",
-					"value": "custom"
-				}
-			],
-			"dependencies": [{
-				"field": "newsletter",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "newsletterFormMailchimp",
-			"group": "Sidebar",
-			"label": "Form action URL",
-			"note": "A form URL is required for the newsletter which you will add visitors to when they complete the newsletter sign-up. This can be found in the 'Signup forms' section of your MailChimp account; <a href='https://mailchimp.com/' target='_blank'>log-in</a> and click 'Lists' in the menu, then click the down-arrow next to the list you wish to add users to, then click the 'Signup forms' option. On the next page, click 'Embedded Forms &rarr; Naked tab'; the required URL will be in the 'form action' tag of the 'Copy/Paste this to your site' box.",
-			"value": "//publii.us10.list-manage.com/subscribe/post?u... ",
-			"type": "text",
-			"dependencies": [{
-				"field": "newsletterForm",
-				"value": "mailchimp"
-			}]
-		},
-		{
-			"name": "newsletterFormCustom",
-			"group": "Sidebar",
-			"label": "",
-			"note": "Paste your own HTML code",
-			"value": "<form>...",
-			"type": "textarea",
-			"dependencies": [{
-				"field": "newsletterForm",
-				"value": "custom"
-			}]
-		},
-		{
-			"name": "heightHero",
-			"label": "Hero height",
-			"group": "Hero section",
-			"value": "29rem",
-			"type": "text"
-	    },
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": "",
-			"group": "Hero section",
-			"size": "small"
-		},			
-		{
-			"name": "uploadHero",
-			"label": "Image",
-			"group": "Hero section",
-			"value": "",
-			"type": "upload",
-			"upload": true
-		},
-		{
-			"name": "uploadHeroAlt",
-			"label": "Image Alt text",
-			"group": "Hero section",
-			"placeholder": "Please add an alternative text to the hero image",
-			"value": "",
-			"type": "text"
-		},
-		{
-			"name": "uploadHeroTitle",
-			"label": "Image Title",
-			"group": "Hero section",
-			"placeholder": "Please add a title to the hero image",
-			"value": "",
-			"type": "text"
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": "",
-			"group": "Hero section",
-			"size": "small"
-		},		
-		{
-			"name": "textHero",
-			"label": "Text",
-			"group": "Hero section",
-			"value": "<h1>Hero section</h1><p>Vis omnis abhorreant cu, ea modo sensibus forensibus mei, ex his viderer aliquam maiestatis.</p> <a href=\"#\" class=\"btn\">Read more</a>",
-			"type": "wysiwyg"
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": "",
-			"group": "Hero section",
-			"size": "small"
-		},	
-		{
-			"name": "headingHeroColor",
-			"label": "Heading H1 color",
-			"group": "Hero section",
-			"value": "#ffffff",
-			"type": "colorpicker"
-		},
-		{
-			"name": "textHeroColor",
-			"label": "Text color",
-			"group": "Hero section",
-			"value": "#ffffff",
-			"type": "colorpicker"
-		},	
-		
-		{
-			"name": "primaryColor",
-			"label": "Primary color",
-			"group": "Colors",
-			"value": "#3949ab",
-			"type": "colorpicker"
-		},
-		{
-			"name": "headingColor",
-			"label": "Headings color",
-			"group": "Colors",
-			"value": "#343434",
-			"type": "colorpicker"
-		},
-		{
-			"name": "textColor",
-			"label": "Text color",
-			"group": "Colors",
-			"value": "#343434",
-			"type": "colorpicker"
-		},	
-		{
-			"name": "linkColor",
-			"label": "Link color",
-			"group": "Colors",
-			"value": "#343434",
-			"type": "colorpicker"
-		},
-		{
-			"name": "linkHoverColor",
-			"label": "Link hover color",
-			"group": "Colors",
-			"value": "#3949ab",
-			"type": "colorpicker"
-		},
-		{
-			"name": "minFontSize",
-			"label": "Minimum font size",
-			"group": "Fonts",
-			"note": "The font-size of the root element in REM unit",
-			"value": "1",
-			"type": "range",
-			"min": 1,
-			"max": 3,
-			"step": 0.05
-		},
-		{
-			"name": "maxFontSize",
-			"label": "Maximum font size",
-			"group": "Fonts",
-			"note": "The font-size of the root element in REM unit",
-			"value": "1.2",
-			"type": "range",
-			"min": 1,
-			"max": 3,
-			"step": 0.05
-		},
-		
-		{
-			"name": "linkColorMenu",
-			"label": "Menu link color",
-			"group": "Menu",
-			"value": "#343434",
-			"type": "colorpicker"
-		},
-		{
-			"name": "linkHoverColorMenu",
-			"label": "Menu link hover color",
-			"group": "Menu",
-			"value": "#3949ab",
-			"type": "colorpicker"
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": "",
-			"group": "Menu",
-			"size": "small"
-		},		
-		{
-			"name": "submenu",
-			"label": "Submenu width",
-			"group": "Menu",
-			"value": "auto",
-			"type": "select",
-			"options": [
-				{
-					"label": "Auto",
-					"value": "auto"
-
-                },
-				{
-					"label": "Custom",
-					"value": "custom"
-
-                }
-            ]
+    "name": "Starter",
+    "version": "1.0.0.0",
+    "author": "TidyCustoms <https://tidycustoms.net/>",
+    "menus": {
+        "mainMenu": "Main menu"
+    },
+    "renderer": {
+        "relatedPostsNumber": 3,
+        "createSearchPage": true,
+        "create404page": true
+    },
+    "config": [
+        {
+            "name": "postsPerPage",
+            "label": "Posts per page",
+            "value": 4,
+            "type": "number"
         },
-		{
-			"name": "submenuWidth",
-			"group": "Menu",
-			"note": "The submenu width in REM unit",
-			"label": "",
-			"value": "15",
-			"type": "range",
-			"min": 1,
-			"max": 100,
-			"step": 1,
-			"dependencies": [{
-				"field": "submenu",
-				"value": "custom"
+        {
+            "name": "tagsPostsPerPage",
+            "label": "Tags posts per page",
+            "value": 8,
+            "type": "number"
+        },
+        {
+            "name": "authorsPostsPerPage",
+            "label": "Authors posts per page",
+            "value": 8,
+            "type": "number"
+        },
+        {
+            "name": "excerptLength",
+            "label": "Excerpt length",
+            "value": 15,
+            "type": "number"
+        },
+        {
+            "name": "logo",
+            "label": "Website logo",
+            "value": "",
+            "type": "upload",
+            "upload": true
+        }
+    ],
+    "customConfig": [
+        {
+            "name": "mainWidth",
+            "label": "Main column width",
+            "group": "Layout",
+            "note": "Use of REM units recommended but you can also use others (px, vw, %)",
+            "value": "42rem",
+            "type": "text"
+        },
+        {
+            "name": "sidebarWidth",
+            "label": "Sidebar width",
+            "group": "Layout",
+            "note": "Use of REM units recommended but you can also use others (px, vw, %)",
+            "value": "20rem",
+            "type": "text"
+        },
+
+        {
+            "name": "sidebar",
+            "label": "Sidebar",
+            "group": "Sidebar",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": " ",
+            "group": "Sidebar",
+            "size": "small",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
             }]
         },
-
-		{
-			"name": "shareFacebook",
-			"group": "Share Buttons",
-			"label": "Facebook share button",
-			"value": true,
-			"type": "checkbox"
-		},
-		{
-			"name": "shareTwitter",
-			"group": "Share Buttons",
-			"label": "Twitter share button",
-			"value": true,
-			"type": "checkbox"
-		},
-		{
-			"name": "shareTwitterName",
-			"group": "Share Buttons",
-			"note": "Enter your Twitter account's handle here; it will be used when the Twitter share button is clicked on your site e.g. 'via @TwitterHandle'. If left blank, the default username of @SiteName will be used",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "shareTwitter",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "shareGoogleplus",
-			"group": "Share Buttons",
-			"label": "Google+ share button",
-			"value": true,
-			"type": "checkbox"
-		},
-		{
-			"name": "sharePinterest",
-			"group": "Share Buttons",
-			"label": "Pinterest share button",
-			"value": true,
-			"type": "checkbox"
-		},
-		{
-			"name": "shareStumbleupon",
-			"group": "Share Buttons",
-			"label": "StumbleUpon share button",
-			"value": true,
-			"type": "checkbox"
-		},
-		{
-			"name": "shareLinkedin",
-			"group": "Share Buttons",
-			"label": "LinkedIn share button",
-			"value": true,
-			"type": "checkbox"
-		},
-		{
-			"name": "shareBuffer",
-			"group": "Share Buttons",
-			"label": "Buffer share button",
-			"value": true,
-			"type": "checkbox"
-		},
-
-		{
-			"name": "commentDisqusShortname",
-			"label": "Disqus shortname",
-			"group": "Comments",
-			"placeholder": "Please enter your Disqus shortname",
-			"note": "A shortname is the unique identifier assigned to a Disqus site. Please visit https://help.disqus.com/ to find more details. <br /><br /><span style=\"background: #fff8d4\">Do not forget to enable comments in Post Options tab.</span>",
-			"value": "",
-			"type": "text"
-		},
-
-		{
-			"name": "copyrightText",
-			"label": "Copyright text",
-			"group": "Footer",
-			"value": "Powered by Publii - Open-Source CMS for Static Website",
-			"type": "wysiwyg"
-		},
-		{
-			"name": "socialButtons",
-			"group": "Footer",
-			"label": "Follow Buttons",
-			"value": false,
-			"type": "checkbox"
-		},
-		{
-			"name": "socialFacebook",
-			"label": "Facebook",
-			"group": "Footer",
-			"placeholder": "Please enter your Facebook URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "socialTwitter",
-			"label": "Twitter",
-			"group": "Footer",
-			"placeholder": "Please enter your Twitter URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-
-		{
-			"name": "socialGoogleplus",
-			"label": "Google+",
-			"group": "Footer",
-			"placeholder": "Please enter your Google+ URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "socialInstagram",
-			"label": "Instagram",
-			"group": "Footer",
-			"placeholder": "Please enter your Instagram URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "socialLinkedin",
-			"label": "LinkedIn",
-			"group": "Footer",
-			"placeholder": "Please enter your LinkedIn URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "socialVimeo",
-			"label": "Vimeo",
-			"group": "Footer",
-			"placeholder": "Please enter your Vimeo URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "socialPinterest",
-			"label": "Pinterest",
-			"group": "Footer",
-			"placeholder": "Please enter your Pinterest URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "socialYoutube",
-			"label": "Youtube",
-			"group": "Footer",
-			"placeholder": "Please enter your Youtube URL",
-			"value": "",
-			"type": "text",
-			"dependencies": [{
-				"field": "socialButtons",
-				"value": "true"
-			}]
-		},
-		{
-			"name": "formatDate",
-			"label": "Date format",
-			"group": "Additional",
-			"value": "MMMM D, YYYY",
-			"type": "select",
-			"options": [
-				{
-					"label": "Nov 1, 2016",
-					"value": "MMM D, YYYY"
-
-			},
-				{
-					"label": "1 Nov 2016",
-					"value": "D MMM YYYY"
-
-			},
-				{
-					"label": "November 1, 2016",
-					"value": "MMMM D, YYYY"
-			},
-				{
-					"label": "1 November 2016",
-					"value": "D MMMM YYYY"
-			},
-				{
-					"label": "Sunday, November 1, 2016",
-					"value": "dddd, MMMM D, YYYY"
-			},
-				{
-					"label": "Sunday, 1 November 2016",
-					"value": "dddd, D MMMM YYYY"
-			},
-				{
-					"label": "November 1, 2016 10:02:05",
-					"value": "MMMM D, YYYY HH:mm:ss"
-
-			},
-				{
-					"label": "1 November 2016 10:02:05",
-					"value": "D MMMM YYYY HH:mm:ss"
-
-			},
-				{
-					"label": "01/21/2016",
-					"value": "MM/DD/YYYY"
-			},
-				{
-					"label": "21/01/2016",
-					"value": "DD/MM/YYYY"
-			},
-				{
-					"label": "Custom - create your own date format",
-					"value": "custom"
-			}
-			]
-		},
-
-		{
-			"name": "formatDateCustom",
-			"group": "Additional",
-			"label": "Create a custom date format",
-			"note": "More details you can find <a href='https://github.com/taylorhakes/fecha' target='_blank'>here.</a>",
-			"value": "HH:mm:ss YY/MM/DD",
-			"type": "text",
-			"dependencies": [{
-				"field": "formatDate",
-				"value": "custom"
-			}]
-		},
-		{
-			"name": "separator",
-			"type": "separator",
-			"label": "Search Page",
-			"group": "Additional",
-			"size": "big"
-		},
-		{
-			"name": "searchId",
-			"group": "Additional",
-			"label": "Google Custom Search Id",
-			"note": "A search ID is required for search functionality, which uses Google Custom Search. Learn how to configure it here: <a href='https://mailchimp.com/' target='_blank'>https://www.getpublii.com/docs/...</a>",
-			"value": "",
-			"type": "text"
-			
-		},
-		{
-			"name": "searchParam",
-			"group": "Additional",
-			"label": "Search parameter",
-			"note": "You can change the default \"q\" search parameter if desired; this is recommended only for advanced users.",
-			"value": "q",
-			"type": "text"
-		}
-		
-
-	],
-	"postConfig": [
-		{
-			"name": "displayCategoryName",
-			"label": "Display category name",
-			"note": "Display the name of the first tag from all assigned to the post.",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "owner",
+            "label": "Owner",
+            "group": "Sidebar",
+            "value": true,
+            "type": "checkbox",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": " ",
+            "group": "Sidebar",
+            "size": "small",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "authors",
+            "label": "Authors",
+            "group": "Sidebar",
+            "value": true,
+            "type": "checkbox",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "authorsAmount",
+            "label": "Max authors",
+            "group": "Sidebar",
+            "value": "5",
+            "type": "text",
+            "dependencies": [{
+                "field": "authors",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": " ",
+            "group": "Sidebar",
+            "size": "small",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "tags",
+            "label": "Tags",
+            "group": "Sidebar",
+            "value": true,
+            "type": "checkbox",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "tagsAmount",
+            "label": "Max tags",
+            "group": "Sidebar",
+            "value": "5",
+            "type": "text",
+            "dependencies": [{
+                "field": "tags",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": " ",
+            "group": "Sidebar",
+            "size": "small",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "search",
+            "label": "Search",
+            "group": "Sidebar",
+            "note": "Do not forget to configure the Search in Additional tab.",
+            "value": true,
+            "type": "checkbox",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": " ",
+            "group": "Sidebar",
+            "size": "small",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "newsletter",
+            "label": "Newsletter",
+            "group": "Sidebar",
+            "value": true,
+            "type": "checkbox",
+            "dependencies": [{
+                "field": "sidebar",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "newsletterForm",
+            "label": "Signup Form",
+            "group": "Sidebar",
+            "value": "",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Mailchimp",
+                    "value": "mailchimp"
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "HTML newsletter code",
+                    "value": "custom"
+                }
+            ],
+            "dependencies": [{
+                "field": "newsletter",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "newsletterFormMailchimp",
+            "group": "Sidebar",
+            "label": "Form action URL",
+            "note": "A form URL is required for the newsletter which you will add visitors to when they complete the newsletter sign-up. This can be found in the 'Signup forms' section of your MailChimp account; <a href='https://mailchimp.com/' target='_blank'>log-in</a> and click 'Lists' in the menu, then click the down-arrow next to the list you wish to add users to, then click the 'Signup forms' option. On the next page, click 'Embedded Forms &rarr; Naked tab'; the required URL will be in the 'form action' tag of the 'Copy/Paste this to your site' box.",
+            "value": "//publii.us10.list-manage.com/subscribe/post?u... ",
+            "type": "text",
+            "dependencies": [{
+                "field": "newsletterForm",
+                "value": "mailchimp"
+            }]
+        },
+        {
+            "name": "newsletterFormCustom",
+            "group": "Sidebar",
+            "label": "",
+            "note": "Paste your own HTML code",
+            "value": "<form>...",
+            "type": "textarea",
+            "dependencies": [{
+                "field": "newsletterForm",
+                "value": "custom"
+            }]
+        },
+        {
+            "name": "heightHero",
+            "label": "Hero height",
+            "group": "Hero section",
+            "value": "29rem",
+            "type": "text"
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": "",
+            "group": "Hero section",
+            "size": "small"
+        },
+        {
+            "name": "uploadHero",
+            "label": "Image",
+            "group": "Hero section",
+            "value": "",
+            "type": "upload",
+            "upload": true
+        },
+        {
+            "name": "uploadHeroAlt",
+            "label": "Image Alt text",
+            "group": "Hero section",
+            "placeholder": "Please add an alternative text to the hero image",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "name": "uploadHeroTitle",
+            "label": "Image Title",
+            "group": "Hero section",
+            "placeholder": "Please add a title to the hero image",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": "",
+            "group": "Hero section",
+            "size": "small"
+        },
+        {
+            "name": "textHero",
+            "label": "Text",
+            "group": "Hero section",
+            "value": "<h1>Hero section</h1><p>Vis omnis abhorreant cu, ea modo sensibus forensibus mei, ex his viderer aliquam maiestatis.</p> <a href=\"#\" class=\"btn\">Read more</a>",
+            "type": "wysiwyg"
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": "",
+            "group": "Hero section",
+            "size": "small"
+        },
+        {
+            "name": "headingHeroColor",
+            "label": "Heading H1 color",
+            "group": "Hero section",
+            "value": "#ffffff",
+            "type": "colorpicker"
+        },
+        {
+            "name": "textHeroColor",
+            "label": "Text color",
+            "group": "Hero section",
+            "value": "#ffffff",
+            "type": "colorpicker"
+        },
+        {
+            "name": "primaryColor",
+            "label": "Primary color",
+            "group": "Colors",
+            "value": "#3949ab",
+            "type": "colorpicker"
+        },
+        {
+            "name": "headingColor",
+            "label": "Headings color",
+            "group": "Colors",
+            "value": "#343434",
+            "type": "colorpicker"
+        },
+        {
+            "name": "textColor",
+            "label": "Text color",
+            "group": "Colors",
+            "value": "#343434",
+            "type": "colorpicker"
+        },
+        {
+            "name": "linkColor",
+            "label": "Link color",
+            "group": "Colors",
+            "value": "#343434",
+            "type": "colorpicker"
+        },
+        {
+            "name": "linkHoverColor",
+            "label": "Link hover color",
+            "group": "Colors",
+            "value": "#3949ab",
+            "type": "colorpicker"
+        },
+        {
+            "name": "minFontSize",
+            "label": "Minimum font size",
+            "group": "Fonts",
+            "note": "The font-size of the root element in REM unit",
+            "value": "1",
+            "type": "range",
+            "min": 1,
+            "max": 3,
+            "step": 0.05
+        },
+        {
+            "name": "maxFontSize",
+            "label": "Maximum font size",
+            "group": "Fonts",
+            "note": "The font-size of the root element in REM unit",
+            "value": "1.2",
+            "type": "range",
+            "min": 1,
+            "max": 3,
+            "step": 0.05
+        },
+        {
+            "name": "linkColorMenu",
+            "label": "Menu link color",
+            "group": "Menu",
+            "value": "#343434",
+            "type": "colorpicker"
+        },
+        {
+            "name": "linkHoverColorMenu",
+            "label": "Menu link hover color",
+            "group": "Menu",
+            "value": "#3949ab",
+            "type": "colorpicker"
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": "",
+            "group": "Menu",
+            "size": "small"
+        },
+        {
+            "name": "submenu",
+            "label": "Submenu width",
+            "group": "Menu",
+            "value": "auto",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Auto",
+                    "value": "auto"
+
+                },
+                {
+                    "label": "Custom",
+                    "value": "custom"
+
                 }
             ]
         },
-		{
-			"name": "displayAuthor",
-			"label": "Display author name",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "submenuWidth",
+            "group": "Menu",
+            "note": "The submenu width in REM unit",
+            "label": "",
+            "value": "15",
+            "type": "range",
+            "min": 1,
+            "max": 100,
+            "step": 1,
+            "dependencies": [{
+                "field": "submenu",
+                "value": "custom"
+            }]
+        },
+        {
+            "name": "shareFacebook",
+            "group": "Share Buttons",
+            "label": "Facebook share button",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "shareTwitter",
+            "group": "Share Buttons",
+            "label": "Twitter share button",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "shareTwitterName",
+            "group": "Share Buttons",
+            "note": "Enter your Twitter account's handle here; it will be used when the Twitter share button is clicked on your site e.g. 'via @TwitterHandle'. If left blank, the default username of @SiteName will be used",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "shareTwitter",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "shareGoogleplus",
+            "group": "Share Buttons",
+            "label": "Google+ share button",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "sharePinterest",
+            "group": "Share Buttons",
+            "label": "Pinterest share button",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "shareStumbleupon",
+            "group": "Share Buttons",
+            "label": "StumbleUpon share button",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "shareLinkedin",
+            "group": "Share Buttons",
+            "label": "LinkedIn share button",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "shareBuffer",
+            "group": "Share Buttons",
+            "label": "Buffer share button",
+            "value": true,
+            "type": "checkbox"
+        },
+        {
+            "name": "commentDisqusShortname",
+            "label": "Disqus shortname",
+            "group": "Comments",
+            "placeholder": "Please enter your Disqus shortname",
+            "note": "A shortname is the unique identifier assigned to a Disqus site. Please visit https://help.disqus.com/ to find more details. <br /><br /><span style=\"background: #fff8d4\">Do not forget to enable comments in Post Options tab.</span>",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "name": "copyrightText",
+            "label": "Copyright text",
+            "group": "Footer",
+            "value": "Powered by Publii - Open-Source CMS for Static Website",
+            "type": "wysiwyg"
+        },
+        {
+            "name": "socialButtons",
+            "group": "Footer",
+            "label": "Follow Buttons",
+            "value": false,
+            "type": "checkbox"
+        },
+        {
+            "name": "socialFacebook",
+            "label": "Facebook",
+            "group": "Footer",
+            "placeholder": "Please enter your Facebook URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "socialTwitter",
+            "label": "Twitter",
+            "group": "Footer",
+            "placeholder": "Please enter your Twitter URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "socialGoogleplus",
+            "label": "Google+",
+            "group": "Footer",
+            "placeholder": "Please enter your Google+ URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "socialInstagram",
+            "label": "Instagram",
+            "group": "Footer",
+            "placeholder": "Please enter your Instagram URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "socialLinkedin",
+            "label": "LinkedIn",
+            "group": "Footer",
+            "placeholder": "Please enter your LinkedIn URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "socialVimeo",
+            "label": "Vimeo",
+            "group": "Footer",
+            "placeholder": "Please enter your Vimeo URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "socialPinterest",
+            "label": "Pinterest",
+            "group": "Footer",
+            "placeholder": "Please enter your Pinterest URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "socialYoutube",
+            "label": "Youtube",
+            "group": "Footer",
+            "placeholder": "Please enter your Youtube URL",
+            "value": "",
+            "type": "text",
+            "dependencies": [{
+                "field": "socialButtons",
+                "value": "true"
+            }]
+        },
+        {
+            "name": "formatDate",
+            "label": "Date format",
+            "group": "Additional",
+            "value": "MMMM D, YYYY",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Nov 1, 2016",
+                    "value": "MMM D, YYYY"
+
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "1 Nov 2016",
+                    "value": "D MMM YYYY"
+
+                },
+                {
+                    "label": "November 1, 2016",
+                    "value": "MMMM D, YYYY"
+                },
+                {
+                    "label": "1 November 2016",
+                    "value": "D MMMM YYYY"
+                },
+                {
+                    "label": "Sunday, November 1, 2016",
+                    "value": "dddd, MMMM D, YYYY"
+                },
+                {
+                    "label": "Sunday, 1 November 2016",
+                    "value": "dddd, D MMMM YYYY"
+                  },
+                {
+                    "label": "November 1, 2016 10:02:05",
+                    "value": "MMMM D, YYYY HH:mm:ss"
+
+                },
+                {
+                    "label": "1 November 2016 10:02:05",
+                    "value": "D MMMM YYYY HH:mm:ss"
+
+                },
+                {
+                    "label": "01/21/2016",
+                    "value": "MM/DD/YYYY"
+                },
+                {
+                    "label": "21/01/2016",
+                    "value": "DD/MM/YYYY"
+                },
+                {
+                    "label": "Custom - create your own date format",
+                    "value": "custom"
                 }
             ]
         },
-		{
-			"name": "displayDate",
-			"label": "Display date",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "formatDateCustom",
+            "group": "Additional",
+            "label": "Create a custom date format",
+            "note": "More details you can find <a href='https://github.com/taylorhakes/fecha' target='_blank'>here.</a>",
+            "value": "HH:mm:ss YY/MM/DD",
+            "type": "text",
+            "dependencies": [{
+                "field": "formatDate",
+                "value": "custom"
+            }]
+        },
+        {
+            "name": "separator",
+            "type": "separator",
+            "label": "Search Page",
+            "group": "Additional",
+            "size": "big"
+        },
+        {
+            "name": "searchId",
+            "group": "Additional",
+            "label": "Google Custom Search Id",
+            "note": "A search ID is required for search functionality, which uses Google Custom Search. Learn how to configure it here: <a href='https://mailchimp.com/' target='_blank'>https://www.getpublii.com/docs/...</a>",
+            "value": "",
+            "type": "text"
+
+        },
+        {
+            "name": "searchParam",
+            "group": "Additional",
+            "label": "Search parameter",
+            "note": "You can change the default \"q\" search parameter if desired; this is recommended only for advanced users.",
+            "value": "q",
+            "type": "text"
+        }
+    ],
+    "postConfig": [
+        {
+            "name": "displayCategoryName",
+            "label": "Display category name",
+            "note": "Display the name of the first tag from all assigned to the post.",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         },
-		{
-			"name": "displayLastUpdatedDate",
-			"label": "Display last updated date",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "displayAuthor",
+            "label": "Display author name",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         },
-		{
-			"name": "displayShareButtons",
-			"label": "Display share buttons",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "displayDate",
+            "label": "Display date",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         },
-		{
-			"name": "displayTags",
-			"label": "Display tags",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "displayLastUpdatedDate",
+            "label": "Display last updated date",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         },
-		{
-			"name": "displayAuthorBio",
-			"label": "Display author bio",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "displayShareButtons",
+            "label": "Display share buttons",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         },
-		{
-			"name": "displayPostNavigation",
-			"label": "Display post naviagtion",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "displayTags",
+            "label": "Display tags",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "displayAuthorBio",
+            "label": "Display author bio",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
+                },
+                {
+                    "label": "Disabled",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "displayPostNavigation",
+            "label": "Display post naviagtion",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
+                },
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         },
 
-		{
-			"name": "displayRelatedPosts",
-			"label": "Display related posts",
-			"value": 1,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "displayRelatedPosts",
+            "label": "Display related posts",
+            "value": 1,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         },
-		{
-			"name": "displayComments",
-			"label": "Display comments",
-			"value": 0,
-			"type": "select",
-			"options": [
-				{
-					"label": "Enabled",
-					"value": 1
+        {
+            "name": "displayComments",
+            "label": "Display comments",
+            "value": 0,
+            "type": "select",
+            "options": [
+                {
+                    "label": "Enabled",
+                    "value": 1
                 },
-				{
-					"label": "Disabled",
-					"value": 0
+                {
+                    "label": "Disabled",
+                    "value": 0
                 }
             ]
         }
     ],
-	"files": {
-		"ignoreAssets": ["scss", ".DS_Store"],
-		"assetsPath": "assets",
-		"partialsPath": "partials",
-		"responsiveImages": {
-			"contentImages": {
-				"sizes": "(max-width: 48em) 100vw, 768px",
-				"dimensions": {
-					"xs": {
-						"width": 300,
-						"height": 255,
-						"crop": true
-					},
-					"sm": {
-						"width": 480,
-						"height": "auto"
-					},
-					"md": {
-						"width": 768,
-						"height": "auto"
-					}
-				}
-			},
-
-			"featuredImages": {
-				"sizes": {
-					"post": "(max-width: 1024px) 100vw, 1024px",
-					"amp": "(max-width: 768px) 100vw, 768px",
-					"listing": "(min-width: 37.5em) 50vw, 100vw"
-				},
-
-				"dimensions": {
-					"xs": {
-						"width": 300,
-						"height": 255,
-						"crop": true,
-						"group": "post,listing,amp"
-					},
-					"sm": {
-						"width": 480,
-						"height": "auto",
-						"group": "post,listing,amp"
-					},
-					"md": {
-						"width": 768,
-						"height": "auto",
-						"group": "post,amp"
-					},
-					"lg": {
-						"width": 1024,
-						"height": "auto",
-						"group": "post"
-					}
-				}
-			},
-
-			"optionImages": {
-				"sizes": "(max-width: 1024px) 100vw, 1024px",
-				"dimensions": {
-					"xs": {
-						"width": 300,
-						"height": 255,
-						"crop": true
-					},
-					"sm": {
-						"width": 480,
-						"height": "auto"
-					},
-					"md": {
-						"width": 768,
-						"height": "auto"
-					},
-					"lg": {
-						"width": 1024,
-						"height": "auto"
-					}
-				}
-			}
-
-		}
-	},
-	"customElements": [
-		{
-			"label": "Info",
-			"cssClasses": "msg msg--info",
-			"selector": "p"
+    "files": {
+        "ignoreAssets": ["scss", ".DS_Store"],
+        "assetsPath": "assets",
+        "partialsPath": "partials",
+        "responsiveImages": {
+            "contentImages": {
+                "sizes": "(max-width: 48em) 100vw, 768px",
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": 255,
+                        "crop": true
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto"
+                    }
+                }
+            },
+            "featuredImages": {
+                "sizes": {
+                    "post": "(max-width: 1024px) 100vw, 1024px",
+                    "amp": "(max-width: 768px) 100vw, 768px",
+                    "listing": "(min-width: 37.5em) 50vw, 100vw"
+                },
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": 255,
+                        "crop": true,
+                        "group": "post,listing,amp"
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto",
+                        "group": "post,listing,amp"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto",
+                        "group": "post,amp"
+                    },
+                    "lg": {
+                        "width": 1024,
+                        "height": "auto",
+                        "group": "post"
+                    }
+                }
+            },
+            "optionImages": {
+                "sizes": "(max-width: 1024px) 100vw, 1024px",
+                "dimensions": {
+                    "xs": {
+                        "width": 300,
+                        "height": 255,
+                        "crop": true
+                    },
+                    "sm": {
+                        "width": 480,
+                        "height": "auto"
+                    },
+                    "md": {
+                        "width": 768,
+                        "height": "auto"
+                    },
+                    "lg": {
+                        "width": 1024,
+                        "height": "auto"
+                    }
+                }
+            }
+        }
+    },
+    "customElements": [
+        {
+            "label": "Info",
+            "cssClasses": "msg msg--info",
+            "selector": "p"
         },
-		{
-			"label": "Highlight",
-			"cssClasses": "msg msg--highlight ",
-			"selector": "p"
+        {
+            "label": "Highlight",
+            "cssClasses": "msg msg--highlight ",
+            "selector": "p"
         },
-		{
-			"label": "Success",
-			"cssClasses": "msg msg--success",
-			"selector": "p"
+        {
+            "label": "Success",
+            "cssClasses": "msg msg--success",
+            "selector": "p"
         },
-		{
-			"label": "Drop cap",
-			"cssClasses": "dropcap",
-			"selector": "p"
+        {
+            "label": "Drop cap",
+            "cssClasses": "dropcap",
+            "selector": "p"
         }
     ]
 }
