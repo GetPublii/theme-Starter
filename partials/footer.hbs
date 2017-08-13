@@ -9,56 +9,56 @@
     {{#if @config.custom.socialButtons}}
         <div class="footer__social">
             {{#if @config.custom.socialFacebook}}
-                <a href="{{@config.custom.socialFacebook}}" title="Facebook">
+                <a href="{{@config.custom.socialFacebook}}" title="Facebook" aria-label="Facebook">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#facebook"/>
                     </svg>
                 </a>
             {{/if}}
             {{#if @config.custom.socialTwitter}}
-                <a href="{{@config.custom.socialTwitter}}" title="Twitter">
+                <a href="{{@config.custom.socialTwitter}}" title="Twitter" aria-label="Twitter">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#twitter"/>
                     </svg>
                 </a>
             {{/if}}
             {{#if @config.custom.socialGoogleplus}}
-                <a href="{{@config.custom.social_googleplus}}" title="Google+">
+                <a href="{{@config.custom.social_googleplus}}" title="Google+" aria-label="Google+">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#gplus"/>
                     </svg>
                 </a>
             {{/if}}
             {{#if @config.custom.socialInstagram}}
-                <a href="{{@config.custom.socialInstagram}}" title="Instagram">
+                <a href="{{@config.custom.socialInstagram}}" title="Instagram" aria-label="Instagram">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#instagram"/>
                     </svg>
                 </a>
             {{/if}}
             {{#if @config.custom.socialLinkedin}}
-                <a href="{{@config.custom.socialLinkedin}}" title="LinkedIn">
+                <a href="{{@config.custom.socialLinkedin}}" title="LinkedIn" aria-label="LinkedIn">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#linkedin"/>
                     </svg>
                 </a>
             {{/if}}
             {{#if @config.custom.socialVimeo}}
-                <a href="{{@config.custom.socialVimeo}}" title="Vimeo">
+                <a href="{{@config.custom.socialVimeo}}" title="Vimeo" aria-label="Vimeo">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#vimeo"/>
                     </svg>
                 </a>
             {{/if}}
             {{#if @config.custom.socialPinterest}}
-                <a href="{{@config.custom.socialPinterest}}" title="Pinterest">
+                <a href="{{@config.custom.socialPinterest}}" title="Pinterest" aria-label="Pinterest">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#pinterest"/>
                     </svg>
                 </a>
             {{/if}}
             {{#if @config.custom.socialYoutube}}
-                <a href="{{@config.custom.socialYoutube}}" title="Youtube">
+                <a href="{{@config.custom.socialYoutube}}" title="Youtube" aria-label="Youtube">
                     <svg class="u-icon">
                         <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#youtube"/>
                     </svg>
@@ -69,10 +69,6 @@
    
 </footer>
 </div>
-
-{{#if @config.custom.bannerCookie}}
-    {{> cookiebar}}
-{{/if}}
 
 <script>
 	var loadCSSFiles = function() {
@@ -95,6 +91,7 @@
 </script>
 <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" aria-dropeffect="" crossorigin="anonymous"></script>
 <script defer src="{{js "scripts.min.js"}}"></script>
+
 {{{@footerCustomCode}}}
 
 </body>
