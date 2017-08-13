@@ -1,0 +1,93 @@
+{{> head}}
+
+<div class="container">
+
+    <header class="top">
+        <a class="logo" href="{{@website.url}}">
+            {{#if @website.logo}}
+                <img src="{{@website.logo}}" alt="{{@website.name}}">
+            {{else}}
+                {{@website.name}}
+            {{/if}}
+        </a>
+        {{> menu menus.mainMenu}}
+    </header>
+
+    <main class="main main--grid {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
+
+        <div class="page-header page-header--listing author">
+            {{#author}}
+                {{#if avatar}}
+                    <img src="{{avatar}}" class="author__avatar" alt="{{name}}">
+                {{/if}}
+                <h1 class="page-header__title">
+                    {{name}}
+                    <sup>({{postsNumber}} {{ translate "listing.post" (math postsNumber '+' 0)}})</sup>
+                </h1>
+                {{#if description}}
+                    <p class="page-header__desc">
+                        {{description}}
+                    </p>
+                {{/if}}
+            {{/author}}
+        </div>
+
+        {{#each posts}}
+            <article class="article">
+
+                {{#featuredImage}}
+                    {{#if url}}
+                        <a href="{{../url}}" class="card__image">
+                            <img
+                                src="{{url}}"
+                                sizes="{{sizes.listing}}"
+                                srcset="{{srcset.listing}}"
+                                alt="{{alt}}">
+                        </a>
+                    {{/if}}
+                {{/featuredImage}}
+
+                <header>
+                   <h2 class="article__title">
+                        <a href="{{url}}">{{title}}</a>
+                    </h2>
+                    {{#if excerpt}}
+                        <p>{{{excerpt}}}</p>
+                    {{/if}}
+
+                    {{#checkIfAny @config.custom.frontAuthor @config.custom.frontDate}}
+                        <p class="article__meta u-small">
+							
+                            {{#if @config.custom.frontAuthor}}
+                                {{#author}}
+                                    <a href="{{url}}" title="{{name}}">
+                                        {{#if avatar}}
+                                            <img src="{{avatar}}" class="article__meta__avatar" alt="{{name}}">
+                                        {{/if}}
+                                        {{name}}
+                                    </a>
+                                {{/author}}
+                            {{/if}}
+							
+                            {{#if @config.custom.frontDate}}
+                                <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+                                    {{date createdAt @config.custom.formatDate}}
+                                </time>
+                            {{/if}}
+							
+                        </p>
+                    {{/checkIfAny}}
+
+                </header>
+            </article>
+        {{/each}}
+
+        {{> pagination}}
+
+    </main>
+
+   {{#if @config.custom.sidebar}}
+        {{> sidebar}}
+	 {{/if}}
+	
+    {{> footer}}

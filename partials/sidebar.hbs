@@ -1,0 +1,103 @@
+    <div class="sidebar">
+
+        {{!-- We do not provide an if-conditional {{#if siteOwner}} here as an owner always exists. Instead, we can use the on/off if-conditional {{#if @config.custom.owner}} within this section of the theme settings. --}}
+        {{#if @config.custom.owner}}
+            {{#siteOwner}}
+                <section class="owner box box--gray">
+                    <h3 class="box__title">{{ translate 'sidebar.owner' }}</h3>
+                    <img src="{{avatar}}" alt="{{name}}">
+                    <h4>{{name}}</h4>
+                    <p>
+                        {{description}}
+                        <a href="mailto:{{email}}" class="owner__email">{{email}}</a>
+                    </p>
+                </section>
+            {{/siteOwner}}
+        {{/if}}
+
+        {{!-- We do not provide an if-conditional here as at least one author (main author) always exists. Instead, we can use the on/off custom if-conditional {{#if @config.custom.authors}} within this section of the theme settings. --}}
+        {{#if @config.custom.authors}}
+            <section class="box">
+                <h3 class="box__title">{{ translate 'sidebar.authors' }}</h3>
+                <ul class="authors">
+                    {{#each authors}}
+                        {{#checkIf @index '<' @config.custom.authorsAmount}} {{!-- With this it is possible to specify the number of authors that are displayed. --}}
+                            <li>
+                                <a href="{{url}}" class="authors__img">
+                                    <img src="{{avatar}}" alt="{{name}}">
+                                </a>
+                                <div>
+                                    <a href="{{url}}" class="authors__title">{{name}}</a>
+                                    <span class="u-small">{{ translate 'sidebar.authorsPost' }}
+                                        {{postsNumber}}
+                                    </span>
+                                </div>
+                            </li>
+                        {{/checkIf}}
+                    {{/each}}
+                </ul>
+            </section>
+        {{/if}}
+
+        {{!-- We use an if-conditional {#if tags}} here because if no tag is assigned to the article the section will not display a tags list; with this conditional we can hide the empty section. Additionally we use custom if-conditional {{#if @config.custom.tags}} to switch this section on/off in the theme settings.--}}
+        {{#if @config.custom.tags}}
+            {{#if tags}}
+                <section class="box">
+                    <h3 class="box__title">{{ translate 'sidebar.tags' }}</h3>
+                    <ul class="tags">
+                        {{#each tags}}
+                            {{#checkIf @index '<' @config.custom.tagsAmount}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                    <span class="u-small">({{postsNumber}})</span>
+                                </li>
+                            {{/checkIf}}
+                        {{/each}}
+                    </ul>
+                </section>
+            {{/if}}
+        {{/if}}
+
+        {{!-- We use the custom if-conditional {{#if @config.custom.search}} to switch this section on/off in the theme settings  --}}
+        {{#if @config.custom.search}}
+            <section class="box">
+                <h3 class="box__title">{{ translate 'sidebar.search' }}</h3>
+                <form action="{{@website.searchUrl}}" class="search">
+                    <input
+                        type="search"
+                        name="{{@config.custom.searchParam}}"
+                        placeholder="{{ translate 'sidebar.searchPlaceholder' }}"/>
+                </form>
+            </section>
+        {{/if}}
+
+        {{!-- We use the custom if-conditional {{#if @config.custom.newsletter}} to switch this section on/off in the theme settings  --}}
+        {{#if @config.custom.newsletter}}
+            <section class="newsletter box box--gray">
+                <h3 class="box__title">{{ translate 'sidebar.newsletter' }}</h3>
+                <p class="newsletter__note">{{ translate 'sidebar.newsletterDesc' }}</p>
+                {{#checkIf @config.custom.newsletterForm '==' "mailchimp" }}
+                    <!-- Begin MailChimp Signup Form -->
+                    <form
+                        class="newsletter__form"
+                        action="https:{{@config.custom.newsletterFormMailchimp}}"
+                        method="post"
+                        id="mc-embedded-subscribe-form"
+                        name="mc-embedded-subscribe-form"
+                        target="_blank"
+                        novalidate="novalidate">
+                        <input type="email" value="" placeholder="e-mail address" name="EMAIL">
+                        <input
+                            type="submit"
+                            value="{{ translate 'sidebar.newsletterSubscribe' }}"
+                            name="subscribe"
+                            class="btn--inverse">
+                    </form>
+                    <!--End mc_embed_signup-->
+                {{else}}
+                    {{{@config.custom.newsletterFormCustom}}}
+                {{/checkIf}}
+            </section>
+        {{/if}}
+
+    </div>

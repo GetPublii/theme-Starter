@@ -1,0 +1,31 @@
+{{> head}}
+
+<div class="container">
+	
+    <header class="top">
+        <a class="logo" href="{{@website.url}}">
+            {{#if @website.logo}}
+                <img src="{{@website.logo}}" alt="{{@website.name}}">
+            {{else}}
+                {{@website.name}}
+            {{/if}}
+        </a>
+        {{> menu menus.mainMenu}}
+    </header>
+
+    <main class="main {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
+        <div class="page-header">
+            <h1 class="page-header__title">
+                {{ translate 'error.404' }}
+            </h1>
+            <p class="page-header__desc">
+                {{ translate 'error.description' }}
+            </p>
+        </div>
+    </main>
+
+    {{#if @config.custom.sidebar}}
+        {{> sidebar}}
+	 {{/if}}
+	
+    {{> footer}}

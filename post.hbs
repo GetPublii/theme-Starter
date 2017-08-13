@@ -1,0 +1,239 @@
+{{> head}}
+
+<div class="container">
+
+    <header class="top">
+        <a class="logo" href="{{@website.url}}">
+            {{#if @website.logo}}
+                <img src="{{@website.logo}}" alt="{{@website.name}}">
+            {{else}}
+                {{@website.name}}
+            {{/if}}
+        </a>
+        {{> menu menus.mainMenu}}
+    </header>
+
+    <main class="main {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}"> {{!-- We use {{#checkIfNone}}
+        here because if a sidebar is disabled the main container should stretch to full width. So, if there is no sidebar the main--full class is added. --}}       
+
+        {{#post}}
+            <article class="post">
+                <header>
+                    <h1>
+                        {{title}}
+                    </h1>
+					
+                    {{#checkIfAny @config.post.displayCategoryName @config.post.displayAuthor @config.post.displayDate}}
+                        <ul class="post__meta u-small">
+                            {{#if @config.post.displayAuthor}}
+                                <li>
+                                    {{#author}}
+                                        <a href="{{url}}" rel="author" title="{{name}}">{{name}}</a>
+                                    {{/author}}
+                                </li>
+                            {{/if}}
+                            {{#if @config.post.displayDate}}
+                                <li>
+                                    {{ translate 'post.publishedOn' }}
+                                    <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+                                        {{date createdAt @config.custom.formatDate}}
+                                    </time>
+                                </li>
+                            {{/if}}
+                            {{#if @config.post.displayCategoryName}}
+                                {{#if tags}}
+                                    <li>
+                                        {{#each tags}}
+                                            {{#if @first}}
+                                                <a href="{{url}}" title="{{name}}">{{name}}</a>
+                                            {{/if}}
+                                        {{/each}}
+                                    </li>
+                                {{/if}}
+                            {{/if}}
+                            {{#isFeatured}} {{!-- If a post is marked as Featured, display the following code --}}       
+                                <li>
+                                    <svg class="u-icon">
+                                        <use xlink:href="{{@website.assetsUrl}}/svg/svg-map.svg#featured"/>
+                                    </svg>
+                                    Featured
+                                </li>
+                            {{/isFeatured}}
+                        </ul>
+                    {{/checkIfAny}}
+
+                    {{#featuredImage}}
+                        {{#if url}}
+                            <figure>
+                                <img
+                                    src="{{url}}"
+                                    sizes="{{sizes.post}}"
+                                    srcset="{{srcset.post}}"
+                                    alt="{{alt}}">
+                                {{#checkIfAny caption credits}}
+                                    <figcaption>
+                                        {{caption}}
+                                        {{credits}}
+                                    </figcaption>
+                                {{/checkIfAny}}
+                            </figure>
+                        {{/if}}
+                    {{/featuredImage}}
+
+                </header>
+
+                <div class="post__entry">
+                    {{{text}}}
+                </div>
+
+                {{#checkIfAny @config.post.displayLastUpdatedDate @config.post.displayShareButtons @config.post.displayTags @config.post.displayAuthorBio @config.post.displayPostNavigation @config.post.displayRelatedPosts}}
+                    <footer class="post__footer">
+
+                        {{#if @config.post.displayLastUpdatedDate}}
+                            {{#if modifiedAt}}
+                                <p class="post__last-updated">
+                                    {{ translate 'post.lastUpdatedDate' }}
+                                    {{date modifiedAt @config.custom.formatDate}}</p>
+                            {{/if}}
+                        {{/if}}
+
+                        {{#if @config.post.displayShareButtons}}
+                            <div class="post__share box">
+                                <h3 class="box__title">
+                                    {{ translate 'post.share' }}
+                                </h3>
+                                {{> share-buttons}}
+                            </div>
+                        {{/if}}
+
+                        {{#if @config.post.displayTags}}
+                            {{#if tags}}
+                                <ul class="post__tag box">
+                                    <h3 class="box__title">
+                                        {{ translate 'post.tags' }}
+                                    </h3>
+                                    {{#each tags}}
+                                        <li>
+                                            <a href="{{url}}">{{name}}</a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            {{/if}}
+                        {{/if}}
+
+                        {{#if @config.post.displayAuthorBio}}
+                            {{#author}}
+                                <div class="post__bio box">
+                                    {{#if avatar}}
+                                        <img src="{{avatar}}" alt="{{name}}">
+                                    {{/if}}
+                                    {{#if name}}
+                                        <h3>
+                                            <a href="{{url}}" title="{{name}}">{{name}}</a>
+                                        </h3>
+                                    {{/if}}
+                                    {{#if description}}
+                                        <p>{{description}}
+                                        </p>
+                                    {{/if}}
+                                    <p>
+                                        <a href="{{url}}" class="btn">
+                                            {{ translate 'post.viewAuthorPosts' }}
+                                        </a>
+                                    </p>
+                                </div>
+                            {{/author}}
+                        {{/if}}
+
+                        {{#if @config.post.displayPostNavigation}}
+                            {{#checkIfAny ../previousPost ../nextPost}}
+                                <nav class="post__nav box">
+                                    {{#../previousPost}}
+                                        <div class="post__nav__prev">
+                                            <a href="{{url}}" class="post__nav__link" rel="prev">
+                                                {{#featuredImage}}
+                                                    {{#if urlXs}}
+                                                        <img src="{{urlXs}}" alt="{{alt}}">
+                                                    {{/if}}
+                                                {{/featuredImage}}
+                                                <div class="post__nav__text">
+                                                    {{ translate 'post.previousPost' }}
+                                                    <h5>
+                                                        {{title}}
+                                                    </h5>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {{/../previousPost}}
+                                    {{#../nextPost}}
+                                        <div class="post__nav__next">
+                                            <a href="{{url}}" class="post__nav__link" rel="next">
+                                                <div class="post__nav__text">
+                                                    {{ translate 'post.nextPost' }}
+                                                    <h5>
+                                                        {{title}}
+                                                    </h5>
+                                                </div>
+                                                {{#featuredImage}}
+                                                    {{#if urlXs}}
+                                                        <img src="{{urlXs}}" alt="{{alt}}">
+                                                    {{/if}}
+                                                {{/featuredImage}}
+                                            </a>
+                                        </div>
+                                    {{/../nextPost}}
+                                </nav>
+                            {{/checkIfAny}}
+                        {{/if}}
+
+                        {{#if @config.post.displayRelatedPosts}}
+                            {{#if ../relatedPosts}}
+                                <div class="post__related box">
+                                    <h3 class="box__title">
+                                        {{ translate 'post.relatedPosts' }}
+                                    </h3>
+                                    <div class="post__related__wrap">
+                                        {{#each ../relatedPosts}}
+                                            <figure>
+                                                {{#featuredImage}}
+                                                    {{#if url}}
+                                                        <a href="{{../url}}">
+                                                            <img src="{{urlXs}}" alt="{{alt}}">
+                                                        </a>
+                                                    {{/if}}
+                                                {{/featuredImage}}
+                                                <figcaption>
+                                                    <h4>
+                                                        <a href="{{url}}">{{title}}</a>
+                                                    </h4>
+                                                    <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+                                                        {{date createdAt @config.custom.formatDate}}
+                                                    </time>
+                                                </figcaption>
+                                            </figure>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    </footer>
+                {{/checkIfAny}}
+            </article>
+        {{/post}}
+
+        {{#if @config.post.displayComments}}
+            <div class="comments box">
+                <h3 class="box__title">
+                    {{ translate 'post.comments' }}
+                </h3>
+                {{> disqus}}
+            </div>
+        {{/if}}
+
+    </main>
+
+    {{#if @config.custom.sidebar}}
+        {{> sidebar}}
+    {{/if}}
+
+    {{> footer}}
