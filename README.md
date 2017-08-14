@@ -4,11 +4,12 @@ Version: 1.0.0.0
 
 ## Author:
 
-Bob Mitro TidyCustoms( [@tidycustoms](http://twitter.com/tidycustoms) - [https://tidycustoms.net/](https://tidycustoms.net/) 
+Bob Mitro TidyCustoms ([@tidycustoms](http://twitter.com/tidycustoms) - [https://tidycustoms.net/](https://tidycustoms.net/))
 
 ## Summary
 
-Publii Starter theme for use as a starting template for building yuor custom theme. 
+Publii Starter theme for use as a starting template for building your custom theme. 
+
 
 ### Documentation
 
