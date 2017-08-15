@@ -8,7 +8,7 @@ Bob Mitro TidyCustoms ([@tidycustoms](http://twitter.com/tidycustoms) - [https:/
 
 ## Summary
 
-Publii Starter theme for use as a starting template for building your custom theme. 
+The Starter theme for Publii. A flexible, expandable template that's perfect for users looking to get a headstart on their Publii theme development adventure, with all you need to craft your very own custom layouts and styles.
 
 
 ### Documentation
