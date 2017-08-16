@@ -2,13 +2,15 @@
 
 Version: 1.0.0.0
 
-## Author:
+The Starter theme for Publii. A flexible, expandable template that's perfect for users looking to get a headstart on their Publii theme development adventure, with all you need to craft your very own custom layouts and styles.
+
+**Live demo:** [https://getpublii.com/themes/demo/starter/](https://getpublii.com/themes/demo/starter/)
+
+
+
+### Author:
 
 Bob Mitro TidyCustoms ([@tidycustoms](http://twitter.com/tidycustoms) - [https://tidycustoms.net/](https://tidycustoms.net/))
-
-## Summary
-
-The Starter theme for Publii. A flexible, expandable template that's perfect for users looking to get a headstart on their Publii theme development adventure, with all you need to craft your very own custom layouts and styles.
 
 
 ### Documentation
