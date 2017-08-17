@@ -1,0 +1,80 @@
+// Sidebar ----------------------------------------------------------------- 
+
+.sidebar {
+	input {
+		width: 100%;
+		&+input {
+			margin-top: baseline(2);
+		}
+	}
+}
+
+.box {
+	margin-bottom: calc(#{baseline(12)} + 1vw);
+	&--gray {
+		background: $gray-light;
+		padding: calc(#{baseline(7)} + 0.5vw);
+		&>.box__title {
+			border-top: none;
+			padding-top: 0;
+		}
+	}
+	&__title {
+		color: $color-text-color;
+		margin: 0 0 calc(#{baseline(7)} + 0.5vw);
+	}
+	ul {
+		margin-left: 0;
+	}
+}
+
+.owner {
+	text-align: center;
+	&>img {
+		border-radius: 50%;
+		max-width: 7rem;
+	}
+	&>p {
+		font-size: ms(-2);
+	}
+	&__email {
+		display: block;
+		margin-top: baseline(3);
+		text-decoration: underline
+	}
+}
+
+.authors {
+	list-style: none;
+	&>li {
+		align-items: center;
+		clear: both;
+		display: flex;
+		margin: 0 0 calc(#{baseline(6)} + 0.75vw);
+		padding: 0;
+	}
+	&__img {
+		margin-right: 2rem;
+	}
+	&__title {
+		display: block;
+		font-family: $heading;
+		font-weight: $font-weight-bold;
+	}
+}
+
+.tags {
+	&>li {
+		display: flex;
+		justify-content: space-between;
+		padding-left: 0;
+	}
+}
+
+.newsletter {
+	&__note {
+		color: $gray;
+		font-size: ms(-4);
+		margin: 0 0 baseline(4);
+	}
+}

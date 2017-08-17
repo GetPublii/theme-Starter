@@ -1,0 +1,178 @@
+// Typography ----------------------------------------------------------------- 
+
+html {
+	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($font, min), map-get($font, max));
+}
+
+body {
+	background: $color-bg;
+	color: $color-text;
+	font-family: $body;
+	font-weight: $font-weight-normal;
+	line-height: $line-height;
+}
+
+a {
+	@include links ($color-link, $color-link-hover, $color-link-active, $color-link-focus);
+}
+
+p,
+ul,
+ol,
+dl,
+table {
+	margin-top: calc(#{baseline(5)} + 0.5vw);
+}
+
+blockquote,
+figure {
+	margin-top: calc(#{baseline(7)} + 0.5vw);
+	margin-bottom: calc(#{baseline(7)} + 0.5vw);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $color-headings;
+	font-family: $heading;
+	font-weight: $font-weight-bold;
+	line-height: 1.2;
+	margin-top: calc(#{baseline(7)} + 0.5vw);
+}
+
+h1 {
+	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($h1, min), map-get($h1, max));
+	margin: 0;
+}
+
+h2 {
+	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($h2, min), map-get($h2, max));
+}
+
+h3 {
+	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($h3, min), map-get($h3, max));
+}
+
+h4 {
+	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($h4, min), map-get($h4, max));
+}
+
+h5 {
+	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($h5, min), map-get($h5, max));
+}
+
+h6 {
+	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($h6, min), map-get($h6, max));
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	&+p {
+		margin-top: calc(#{baseline(3)} + 0.25vw);
+	}
+}
+
+b,
+strong {
+	font-weight: $font-weight-bold;
+}
+
+blockquote {
+	font-family: $heading;
+	font-weight: $font-weight-bold;
+	padding: 0 15%;
+	cite {
+		color: $color-text;
+		display: block;
+		font-family: $body;
+		font-size: ms(-2);
+		font-style: normal;
+		padding-top: baseline(2);
+	}
+	&> :nth-child(1) {
+		margin-top: 0;
+	}
+	&:before {
+		display: block;
+		height: 0;
+		content: "“";
+		margin-left: -.55em;
+		@include mappy-bp(sm) {
+			margin-left: -.85em;
+		}
+		font: normal 400%/0.9 $heading;
+		color: $color-border-light;
+	}
+}
+
+ul,
+ol {
+	margin-left: 2rem;
+	&>li {
+		list-style: inherit;
+		padding: baseline(1) 0 0 baseline(4);
+	}
+}
+
+dl {
+	dt {
+		font-weight: $font-weight-bold;
+	}
+}
+
+pre {
+	margin: calc(#{baseline(4)} + 0.25vw) 0 0;
+	padding: baseline(6) baseline(12);
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+code,
+pre {
+	background-color: #f6f6f6;
+	font-family: $monospace;
+	font-size: ms(-1);
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+	vertical-align: top;
+	text-align: left;
+	white-space: nowrap;
+	th {
+		border-bottom: 2px solid $color-border-light;
+		padding: baseline(3) baseline(5);
+	}
+	tr {
+		&:nth-child(2n) {
+			background: $color-grey-light;
+		}
+	}
+	td {
+		padding: baseline(3) baseline(5);
+	}
+}
+
+figcaption {
+	color: $gray;
+	font-family: $font-2;
+	font-weight: $font-weight-normal;
+	font-size: ms(-4);
+	margin: baseline(4) 0 0;
+	text-align: center;
+}
+
+sub,
+sup {
+	font-size: 65%;
+}

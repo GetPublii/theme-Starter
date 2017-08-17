@@ -1,0 +1,19 @@
+// Footer ----------------------------------------------------------------- 
+
+.footer {
+	border-top: 1px solid $color-border-light;
+	font-family: $font-2;
+	margin-top: calc(#{baseline(7)} + 0.5vw);
+	padding: calc(#{baseline(7)} + 0.5vw) 0;
+	text-align: center;
+	&__copyright {}
+	&__social {
+		&>a {
+			display: inline-block;
+			padding: 0 baseline(2);
+		}
+	}
+	&__copyright+&__social {
+		margin-top: baseline(6);
+	}
+}

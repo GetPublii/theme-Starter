@@ -1,0 +1,76 @@
+// CSS Grid Layout ----------------------------------------------------------------- 
+
+// Main columns
+.container {
+	display: grid;
+	grid-gap: calc(#{baseline(7)} + 0.5vw);
+	grid-template-columns: 1fr auto 1fr;
+	@include mappy-bp(md) {
+		grid-template-columns: 1fr minmax(auto, $main-col-width) $sidebar-width 1fr;
+	}
+}
+
+.top {
+	grid-column: 2/3;
+	@include mappy-bp(md) {
+		grid-column: 2/4;
+	}
+}
+
+.footer {
+	grid-column: 2/3;
+	@include mappy-bp(md) {
+		grid-column: 2/4;
+	}
+}
+
+.main {
+	grid-column: 2/3;
+	&--full {
+		grid-column: 2/4;
+	}
+	&--grid {
+		align-content: start;
+		display: grid;
+		grid-gap: calc(#{baseline(7)} + 0.5vw);
+		@include mappy-bp(sm) {
+			grid-template-columns: repeat(6, 1fr);
+			&>.article {
+				grid-column: span 3;
+			}
+		}
+	}
+}
+
+.sidebar {
+	grid-column: 2/3;
+	@include mappy-bp(md) {
+		grid-column: 3/4;
+	}
+}
+
+// Content sections 
+.hero,
+.page-header--listing {
+	@include mappy-bp(sm) {
+		grid-column: span 6;
+	}
+}
+
+.featured-posts {
+	@include mappy-bp(sm) {
+		grid-column: span 6;
+		display: grid;
+		grid-column-gap: calc(#{baseline(7)} + 0.5vw);
+		grid-template-columns: repeat(3, 1fr);
+		&>h3 {
+			grid-column: span 3;
+		}
+	}
+}
+
+.pagination {
+	@include mappy-bp(sm) {
+		grid-column: span 6;
+	}
+}

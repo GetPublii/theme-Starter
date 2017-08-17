@@ -1,0 +1,44 @@
+// Buttons ----------------------------------------------------------------- 
+
+.btn {
+	background: $color-button-bg;
+	border: none;
+	border-radius: 50px;
+	color: $color-button-txt;
+	cursor: pointer;
+	display: inline-block;
+	font: $font-weight-bold ms(-5) $heading;
+	letter-spacing: $letter-spacing * 3;
+	padding: baseline(3) baseline(6);
+	vertical-align: middle;
+	text-align: center;
+	text-transform: lowercase;
+	transition: all 0.24s ease;
+	width: 100%;
+	@include mappy-bp(sm) {
+		width: auto
+	}	
+	&:hover,
+	&:focus,
+	&:active {
+		background: $color-button-bg-hover;
+		
+		color: $color-button-txt-hover;
+	}
+	&:focus {
+		outline: 2px dotted $color-button-border-hover;
+	}
+	&:disabled {
+		background-color: $color-button-disabled-bg;
+		border-color: $color-button-disabled-border;
+		color: $color-text-light;
+		cursor: not-allowed;
+	}
+}
+
+[type=button],
+[type=submit],
+button {
+	@extend .btn;
+	@include appearance-none;
+}

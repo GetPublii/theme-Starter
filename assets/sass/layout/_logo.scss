@@ -1,0 +1,12 @@
+// Logo ----------------------------------------------------------------- 
+
+.logo {
+	color: $color-logo !important;
+	font-family: $logo;
+	font-weight: 800;
+	
+	@include fluid-type(font-size, $minScreen, $maxScreen, ms(6), ms(10));
+	@include mappy-bp(md) {
+		margin: 0;
+	}
+}

@@ -1,0 +1,154 @@
+// Breakpoints - Media queries map ------------------------------------
+
+$breakpoints: ( 
+       sm: 600px,
+       md: 900px,
+	   lg: 1200px,
+       xl: 1600px 	
+); 
+
+
+// Widths ---------------------------------------------------------
+
+$main-col-width: 42rem;
+$sidebar-width: 20rem;
+$hero-height: 29rem;
+
+
+// Typography ---------------------------------------------------------
+
+// Font families 
+
+$font-1: 'PT Serif', serif;
+$font-2: 'Roboto', sans-serif;
+$monospace-font: 'Monaco', 'Courier New', monospace;
+
+$body:       $font-1;
+$heading:    $font-2;
+$logo:       $font-2;
+$monospace:  $monospace-font;
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$letter-spacing: 0.05rem;
+
+// Modular scale
+
+$ms-base: 1rem;
+$ms-ratio: $minor-second; // the list of all available ratios you can find here: /vendors/modular-scale/_ratios.scss
+
+// Min and Max screen width for Fluid Typography
+
+$minScreen: 20rem;
+$maxScreen: 133rem;
+
+
+// Baseline
+
+$line-height: 1.6;
+$baseline: 1.6rem / 6; 
+
+
+// Font size map
+
+$font: ( 
+	min: 1rem,
+	max: 1.2rem 
+);
+
+$h1: ( 
+	min: (ms(8)), 
+	max: (ms(12))
+); 
+$h2: ( 
+	min: (ms(4)),
+	max: (ms(7))
+);
+$h3: ( 
+	min: (ms(2)),
+	max: (ms(5))
+);
+$h4: ( 
+	min: (ms(1)),
+	max: (ms(3))
+);
+$h5: ( 
+	min: (ms(-1)),
+	max: (ms(1))
+);
+$h6: ( 
+	min: (ms(-2)),
+	max: (ms(0)) 
+);
+
+
+// Colors -------------------------------------------------------------
+
+// main colors
+$dark: #343434;
+$color: #3949ab;
+$color-light: #f5f6ff;
+$gray: #908e98;
+$gray-light: #f7f7f8; 
+$white: #ffffff;
+
+// secondary colors
+$color-bg: $white;
+$color-logo: $dark;
+$color-grey-light: tint($dark, 95%); 
+
+// text 
+$color-text: $dark;
+$color-text-light: tint($dark, 30%);
+$color-text-color: $color;
+$color-headings: $dark;
+
+// menu 
+$color-menu: $white;
+$color-menu-link: $dark;
+$color-menu-link-hover: $color;
+$color-menu-border-separator: tint($dark, 90%);
+
+// links 
+$color-link: $dark;
+$color-link-hover: $color;
+$color-link-active: $color;
+$color-link-focus: $color;
+
+// borders 
+$color-border: $dark;
+$color-border-dark: tint($dark, 65%);
+$color-border-light: tint($dark, 86%);
+$color-border-color: $color;
+
+// buttons 
+$color-button-txt: $white;
+$color-button-txt-hover: $white;
+$color-button-border: $dark;
+$color-button-border-hover: $dark;
+$color-button-bg: $color;
+$color-button-bg-hover: $dark;
+$color-button-disabled-bg: tint($dark, 95%);
+$color-button-disabled-border: tint($dark, 75%);
+
+// forms 
+$color-input-bg: $white;
+$color-input-bg-color: $color;
+$color-input-border: tint($dark, 80%);
+$color-input-border-focus: $color;
+
+// social share icons   
+$share_icons: ( 
+	facebook:   #3b5998,  
+	twitter:    #55acee,       
+	gplus:      #dd4b39,       	     
+	instagram:  #405de6,       
+	vimeo:      #1ab7ea,       
+	pinterest:  #bd081c,
+	youtube:    #cd201f,
+	linkedin:   #0077B5,
+	buffer:     #222222,
+	stumbleupon:#eb4924
+); 
+

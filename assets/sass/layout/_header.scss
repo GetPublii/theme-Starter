@@ -1,0 +1,9 @@
+// Header ----------------------------------------------------------------- 
+
+.top {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-top: calc(#{baseline(7)} + 0.5vw);
+	position: relative;
+}

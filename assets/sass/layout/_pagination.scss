@@ -1,0 +1,10 @@
+// Pagination ----------------------------------------------------------------- 
+
+.pagination {
+	&>a {
+		
+		@include mappy-bp(sm) {
+			margin: 0 baseline(2) 0 0;
+		}
+	}
+}

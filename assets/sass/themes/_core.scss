@@ -1,0 +1,365 @@
+// Utility classes  ----------------------------------------------------------
+
+.u-small {
+	color: $gray;
+	font-family: $font-2;
+	font-weight: $font-weight-normal;
+	font-size: ms(-4);
+}
+
+.u-icon {
+	fill: rgba($dark, 0.8);
+	height: ms(0);
+	width: ms(0);
+	transition: all 0.24s ease-out;
+}
+
+
+// Hero  ----------------------------------------------------------
+
+.hero {
+	height: $hero-height;
+	position: relative;
+	&__image {
+		height: $hero-height;
+		object-fit: cover;
+		opacity: 0.9;
+		position: relative;
+		width: 100%;
+	}
+	&__text {
+		color: $white;
+		text-align: center;
+		width: 80%;
+		@include centerXY(true, true);
+		&>h1 {
+			color: $white;
+		}
+		&>.btn {
+			margin-top: baseline(6);
+		}
+	}
+}
+
+
+// Post listing (index, author, tag)  ------------------------------
+
+.page-header {
+	border-top: 3px solid $color-border;
+	padding-top: calc(#{baseline(7)} + 0.5vw);
+	&__title {
+		color: $color-text-color;
+	}
+	&__desc {
+		margin-top: calc(#{baseline(1)} + 0.5vw);
+	}
+}
+
+.article {
+	margin-bottom: calc(#{baseline(6)} + 0.5vw);
+	&__title {
+		@include fluid-type(font-size, $minScreen, $maxScreen, ms(2), ms(3));
+	}
+	&__meta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&__avatar {
+			border-radius: 50%;
+			height: baseline(8);
+			margin-right: baseline(3);
+			width: baseline(8);
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+}
+
+
+// Post page  ----------------------------------------------------------
+
+.post {
+	border-top: 3px solid $color-border;
+	padding-top: calc(#{baseline(7)} + 0.5vw);
+	&__meta {
+		margin: calc(#{baseline(4)} + 0.25vw) 0 0 0;
+		&>li {
+			display: inline-block;
+			list-style: none;
+			padding: baseline(1) baseline(4) 0 0;
+			&>svg {
+				fill: #ffc400;
+				vertical-align: top;
+			}
+		}
+	}
+	&__image {
+		&--left {
+			float: left;
+			margin-right: calc(#{baseline(7)} + 0.5vw);
+			max-width: 50%;
+		}
+		&--right {
+			float: right;
+			margin-left: calc(#{baseline(7)} + 0.5vw);
+			max-width: 50%;
+		}
+		&--center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+		&--wide {
+			text-align: center;
+		}
+		&--full {
+			text-align: center;
+		}
+	}
+	&__entry {
+		margin-top: calc(#{baseline(7)} + 1vw);
+		@include mappy-bp(max md) {
+			max-width: 36rem;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		&>:nth-child(1) {
+			margin-top: 0;
+		}
+		a {
+			@include links ($color-link-hover, $color-link, $color-link, $color-link);
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+	&__footer {
+		margin-top: calc(#{baseline(7)} + 0.5vw);
+		@include mappy-bp(max sm) {
+			text-align: center;
+		}
+		&>.box {
+			border-top: 1px solid $color-border-light;
+			padding-top: calc(#{baseline(7)} + 0.5vw);
+			text-align: center;
+		}
+	}
+	&__last-updated {
+		color: $gray;
+		font-size: ms(-4);
+		margin-bottom: calc(#{baseline(7)} + 0.5vw);
+	}
+	&__share {
+		&>a {
+			background: $gray-light;
+			border-radius: 50px;
+			display: inline-block;
+			font-family: $font-2;
+			font-size: ms(-4);
+			padding: baseline(2) baseline(6);
+			margin: baseline(2) baseline(2) 0;
+			&>.u-icon {
+				pointer-events: none;
+				display: inline-block;
+				margin-right: baseline(2);
+				vertical-align: middle;
+			}
+		}
+	}
+	&__tag {
+		margin-left: 0;
+		margin-top: 0;
+		li {
+			display: inline-block;
+			&>a {
+				background: $gray-light;
+				border-radius: 50px;
+				display: inline-block;
+				font-family: $font-2;
+				font-size: ms(-4);
+				padding: baseline(2) baseline(6);
+			}
+		}
+	}
+	&__bio {
+		&>img {
+			border-radius: 50%;
+			height: baseline(18);
+			width: baseline(18);
+		}
+	}
+	&__nav {
+		color: $gray;
+		display: flex;
+		font-size: ms(-4);
+		justify-content: space-between;
+		margin-bottom: calc(#{baseline(7)} + 0.5vw);
+		&__link {
+			color: $color-text-light;
+			@include mappy-bp(sm) {
+				align-items: flex-start;
+				display: flex;
+				justify-content: space-around;
+			}
+			&>img {
+				width: 100px;
+				@include mappy-bp(max sm) {
+					display: none;
+				}
+			}
+			&:hover {
+				h5 {
+					transition: all 0.12s linear;
+					color: $color-link-hover;
+				}
+			}
+		}
+		h5 {
+			font-size: ms(-2);
+			margin: baseline(1) 0 0;
+			position: relative;
+		}
+		&__prev {
+			flex-basis: 50%;
+			text-align: left;
+		}
+		&__next {
+			flex-basis: 50%;
+			margin-left: auto;
+			text-align: right;
+		}
+		&__text {
+			@include mappy-bp( sm) {
+				width: 55%;
+			}
+		}
+	}
+	&__related {
+		&__wrap {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: calc(#{baseline(7)} + 0.5vw) -2% 0;
+			width: 104%;
+			@include mappy-bp(md) {
+				flex-wrap: no-wrap;
+			}
+			figure {
+				margin: 0;
+				flex-basis: 50%;
+				padding: baseline(3) 2%;
+				@include mappy-bp(sm) {
+					flex-basis: 33.333%;
+				}
+			}
+			figcaption {
+				&>time {
+					color: $gray;
+					font-size: ms(-3);
+					margin: 0 0 baseline(3);
+				}
+			}
+			h4 {
+				font-size: ms(-2);
+				margin: baseline(6) 0 baseline(2);
+			}
+		}
+	}
+}
+
+
+// Comments  ----------------------------------------------------------
+
+.comments {
+	border-top: 1px solid $color-border-light;
+	padding-top: calc(#{baseline(7)} + 0.5vw);
+	text-align: center;
+	&>h3 {
+		margin-bottom: calc(#{baseline(7)} + 0.5vw);
+	}
+}
+
+
+// Author page  ----------------------------------------------------------
+
+.author {
+	&__avatar {
+		border-radius: 50%;
+		height: baseline(18);
+		margin-bottom: calc(#{baseline(7/2)} + 0.5vw);
+		width: baseline(18);
+	}
+}
+
+
+// Search page  ----------------------------------------------------------
+
+.search {
+	&__form {
+		margin-top: calc(#{baseline(7)} + 0.5vw);
+	}
+	&__input {
+		width: 100%;
+	}
+}
+
+
+// Google Custom Search  -------------------------------------------------
+
+.gs-webResult {
+	border-top: 1px solid $color-border-light;
+	padding-top: 1rem;
+}
+
+.gsc-table-result {
+	margin-top: baseline(2);
+	white-space: initial;
+	td {
+		padding: 0;
+	}
+}
+
+
+// Required by WYSIWYG editor  --------------------------------------------
+
+.align-left {
+	text-align: left;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-justify {
+	text-align: justify;
+}
+
+.msg {
+	padding: baseline(4) baseline(6);
+	&--highlight {
+		background-color: #fff7e5;
+	}
+	&--info {
+		background-color: #d9edf7;
+	}
+	&--success {
+		background: #d5efc2;
+	}
+}
+
+.dropcap {
+	&:first-letter {
+		color: $color-headings;
+		float: left;
+		font-family: $heading;
+		line-height: 0.6;
+		margin-right: baseline(2);
+		padding: baseline(2) baseline(2) baseline(2) 0;
+		@include fluid-type(font-size, $minScreen, $maxScreen, ms(16), ms(24));
+	}
+}
