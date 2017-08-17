@@ -1,0 +1,32 @@
+{
+  "name": "starter-theme",
+  "version": "1.0.0",
+  "description": "Publii starter theme for Developers",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GetPublii/theme-Starter.git"
+  },
+  "keywords": [
+    "Publii",
+    "theme"
+  ],
+  "author": "Bob Mitro TidyCustoms (@tidycustoms - https://tidycustoms.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GetPublii/theme-Starter/issues"
+  },
+  "homepage": "https://github.com/GetPublii/theme-Starter#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}
