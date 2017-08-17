@@ -6,7 +6,30 @@ The Starter theme for Publii. A flexible, CSS Grid Layout based expandable templ
 
 **Live demo:** [https://getpublii.com/themes/demo/starter/](https://getpublii.com/themes/demo/starter/)
 
+### Usage
 
+To install all dependencies run inside the theme directory:
+
+```
+npm install
+```
+
+To compile SASS->CSS and minify JS run:
+
+```
+gulp watch
+```
+
+The above command will automatically detect all changes inside `*.scss` and `*.js` files.
+
+You can also run:
+
+```
+gulp sass
+gulp js
+```
+
+To render `*.scss` and `*.js` files only once.
 
 ### Author:
 
@@ -27,3 +50,7 @@ Dev documentation is available at [https://getpublii.com/dev/](https://getpublii
 
 * [Modular Scale](https://github.com/modularscale/modularscale-sass)
 * [Mappy Breakpoints](https://github.com/zellwk/mappy-breakpoints)
+
+### License
+
+MIT
