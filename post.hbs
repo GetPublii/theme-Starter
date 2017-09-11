@@ -2,6 +2,13 @@
 
     {{!-- We use #checkIfNone here because if a sidebar is disabled the main container should stretch to full width. So, if there is no sidebar the main--full class is added. --}}
     <main class="main {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
+    
+       {{#if @customHTML.beforePost}}
+		    <div class="banner banner--before-post">
+				{{@customHTML.beforePost }}
+		    </div>
+		{{/if}}
+        
         {{#post}}
             <article class="post">
                 <header>
@@ -216,6 +223,12 @@
                 {{> disqus}}
             </div>
         {{/if}}
+        
+        {{#if @customHTML.afterPost}}
+		    <div class="banner banner--after-post">
+				{{@customHTML.afterPost}}
+		    </div>
+		{{/if}}
     </main>
 
 {{#if @config.custom.sidebar}}
