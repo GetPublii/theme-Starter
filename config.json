@@ -7,8 +7,16 @@
     },
     "renderer": {
         "relatedPostsNumber": 3,
-        "createSearchPage": true,
-        "create404page": true
+		"renderRelatedPosts": true,
+		"renderSimilarPosts": false,
+		"renderPrevNextPosts": true,
+		"createContentStructure": false,
+		"createSearchPage": true,
+		"create404page": true,
+		"customHTML": {
+			"beforePost": "Before every post",
+			"afterPost": "After every post"
+		}
     },
     "config": [
         {
