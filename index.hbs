@@ -52,8 +52,12 @@
                                 {{/if}}
                                 <p class="article__meta u-small">
                                     <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
-                                        {{date createdAt @config.custom.formatDate}}
-                                    </time>
+										{{#checkIf @config.custom.formatDate '!=' 'custom'}}
+										    {{date createdAt @config.custom.formatDate}}
+										{{else}}
+										    {{date createdAt @config.custom.formatDateCustom}}
+										{{/checkIf}}
+									</time>
                                 </p>
                             </article>
                         {{/checkIf}}
@@ -95,8 +99,12 @@
                         {{/author}}
 
                         <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
-                            {{date createdAt @config.custom.formatDate}}
-                        </time>
+							{{#checkIf @config.custom.formatDate '!=' 'custom'}}
+							    {{date createdAt @config.custom.formatDate}}
+							{{else}}
+							    {{date createdAt @config.custom.formatDateCustom}}
+							{{/checkIf}}
+						</time>
                     </p>
                 </header>
             </article>

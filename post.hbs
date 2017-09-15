@@ -28,9 +28,13 @@
                             {{#if @config.post.displayDate}}
                                 <li>
                                     {{ translate 'post.publishedOn' }}
-                                    <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
-                                        {{date createdAt @config.custom.formatDate}}
-                                    </time>
+									<time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+										{{#checkIf @config.custom.formatDate '!=' 'custom'}}
+										    {{date createdAt @config.custom.formatDate}}
+										{{else}}
+										    {{date createdAt @config.custom.formatDateCustom}}
+										{{/checkIf}}
+									</time>  
                                 </li>
                             {{/if}}
                             {{#if @config.post.displayCategoryName}}
@@ -200,9 +204,13 @@
                                                     <h4>
                                                         <a href="{{url}}">{{title}}</a>
                                                     </h4>
-                                                    <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
-                                                        {{date createdAt @config.custom.formatDate}}
-                                                    </time>
+													<time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+														{{#checkIf @config.custom.formatDate '!=' 'custom'}}
+														    {{date createdAt @config.custom.formatDate}}
+														{{else}}
+														    {{date createdAt @config.custom.formatDateCustom}}
+														{{/checkIf}}
+													</time>  
                                                 </figcaption>
                                             </figure>
                                         {{/each}}
