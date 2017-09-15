@@ -18,6 +18,12 @@
 			"afterPost": "After every post"
 		}
     },
+	"authorTemplates": {
+		"alternative": "1 column layout"
+	},
+	"tagTemplates": {
+		"alternative": "1 column layout"
+	},
     "config": [
         {
             "name": "postsPerPage",
@@ -877,7 +883,7 @@
         }
     ],
     "files": {
-        "ignoreAssets": ["scss", ".DS_Store"],
+        "ignoreAssets": ["sass", ".DS_Store"],
         "assetsPath": "assets",
         "partialsPath": "partials",
         "responsiveImages": {
