@@ -471,6 +471,10 @@ textarea {
         grid-template-columns: repeat(6, 1fr); }
         .main--grid > .article {
           grid-column: span 3; } }
+  @media all and (min-width: 37.5em) {
+    .main--no-grid > .article {
+      margin: -webkit-calc(1.86667rem + 0.5vw) 0;
+      margin: calc(1.86667rem + 0.5vw) 0; } }
 
 .sidebar {
   grid-column: 2/3; }
