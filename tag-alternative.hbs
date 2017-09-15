@@ -1,0 +1,71 @@
+{{> head}}
+
+    <main class="main main--no-grid {{#checkIfNone @config.custom.sidebar}}main--full{{/checkIfNone}}">
+        <div class="page-header page-header--listing">
+            {{#tag}}
+                <h1 class="page-header__title">
+                    {{name}}
+                    <sup>({{postsNumber}})</sup>
+                </h1>
+                {{#if description}}
+                    <p class="page-header__desc">
+                        {{description}}
+                    </p>
+                {{/if}}
+            {{/tag}}
+        </div>{{!-- .page-header --}}
+
+        {{#each posts}}
+            <article class="article">
+                {{#featuredImage}}
+                    {{#if url}}
+                        <a href="{{../url}}">
+                            <img
+                                src="{{url}}"
+                                sizes="{{sizes.listing}}"
+                                srcset="{{srcset.listing}}"
+                                alt="{{alt}}">
+                        </a>
+                    {{/if}}
+                {{/featuredImage}}
+
+                <header>
+                   <h2 class="article__title">
+                        <a href="{{url}}">{{title}}</a>
+                    </h2>
+
+                    {{#if excerpt}}
+                        <p>{{{excerpt}}}</p>
+                    {{/if}}
+					
+					<p class="article__meta u-small">						
+						{{#author}}
+						    <a href="{{url}}" title="{{name}}">
+								{{#if avatar}}
+								    <img src="{{avatar}}" class="article__meta__avatar" alt="{{name}}">
+								{{/if}}
+								    {{name}}
+						    </a>
+						{{/author}}
+						
+						<time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+							{{#checkIf @config.custom.formatDate '!=' 'custom'}}
+							    {{date createdAt @config.custom.formatDate}}
+							{{else}}
+							    {{date createdAt @config.custom.formatDateCustom}}
+							{{/checkIf}}
+						</time>						
+					</p>    
+                   
+                </header>
+            </article>
+        {{/each}}
+
+        {{> pagination}}
+    </main>
+
+{{#if @config.custom.sidebar}}
+    {{> sidebar}}
+{{/if}}
+
+{{> footer}}
