@@ -2,7 +2,7 @@
 
 Version: 1.0.2.0
 
-![Starter theme screenshot](thumbnail.png)
+![Starter theme screenshot](starter-publii-theme.png)
 
 The Starter theme for Publii. A flexible, CSS Grid Layout based expandable template that's perfect for users looking to get a headstart on their Publii theme development adventure, with all you need to craft your very own custom layouts and styles.
 
