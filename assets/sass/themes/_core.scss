@@ -117,6 +117,22 @@
 			text-align: center;
 		}
 	}
+	&__video {
+		height: 0;
+		overflow: hidden;
+		padding-top: baseline(6);
+		padding-bottom: 56.25%;
+		position: relative;
+
+		& > iframe {
+			border: none;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	} 
 	&__entry {
 		margin-top: calc(#{baseline(7)} + 1vw);
 		@include mappy-bp(max md) {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ @website.language }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,8 +23,38 @@
             <link rel="next" href="{{@pagination.nextPageUrl }}">
         {{/if}}
     {{/if}}
-     <link rel="stylesheet" href="{{css "style.css" }}">
+    <link rel="stylesheet" href="{{css "style.css" }}">
+	{{#is "post"}}
+           {{#post}}
+              {{#if hasGallery}}
+                 <link rel="stylesheet" href="{{css "photoswipe.css" }}">
+              {{/if}}
+           {{/post}}
+        {{/is}}	
     {{jsonLD}}
+	{{#is "post"}}
+           {{#post}}
+              {{#if hasGallery}}
+		         {{#if @config.custom.galleryLightboxStyle}}
+		            <style>				
+		               {{#checkIf @config.custom.galleryLightboxStyle '==' "pswp--dark" }}
+				          .pswp--svg .pswp__button,
+				          .pswp--svg .pswp__button--arrow--left:before,
+				          .pswp--svg .pswp__button--arrow--right:before {
+					          background-image: url({{@website.assetsUrl}}/svg/gallery-icons-light.svg);
+			              }
+		              {{else}}
+			              .pswp--svg .pswp__button,
+				          .pswp--svg .pswp__button--arrow--left:before,
+				          .pswp--svg .pswp__button--arrow--right:before {
+					          background-image: url({{@website.assetsUrl}}/svg/gallery-icons-dark.svg);
+			              }		
+		              {{/checkIf}}
+		           </style>
+		         {{/if}}
+              {{/if}}
+           {{/post}}
+        {{/is}}
     {{{@headCustomCode}}}
 </head>
 <body>

@@ -187,6 +187,16 @@ var generateOverride = function (params) {
                color: ${params.textHeroColor};
         }`;
     }
+	
+    if(params.galleryItemGap !== '0.53333rem') {
+        output += `   
+        gallery__item {
+               padding: ${params.galleryItemGap}; 
+        } 
+               gallery {   
+               margin: calc(1.6rem + 1vw) -${params.galleryItemGap}; 
+        }`;    	 
+    }
 
     return output;
 }
