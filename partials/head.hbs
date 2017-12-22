@@ -15,6 +15,9 @@
     {{ampLink}}
     {{feedLink}}
     {{socialMetaTags}}
+	{{#if @config.custom.faviconUpload}}
+	        <link rel="shortcut icon" href="{{@config.custom.faviconUpload}}" type="{{@config.custom.faviconExtension}}" />
+    {{/if}}
     {{#if @pagination}}
         {{#if @pagination.previousPage}}
             <link rel="prev" href="{{@pagination.previousPageUrl }}">
