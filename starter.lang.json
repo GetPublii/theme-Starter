@@ -36,6 +36,7 @@
 
     "post": {
         "publishedOn": "Published on",
+        "publishedBy": "Published by",
         "share": "Share this: ",
         "tags": "Tags: ",
         "viewAuthorPosts": "View all posts",

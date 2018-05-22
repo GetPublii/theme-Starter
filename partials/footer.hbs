@@ -89,7 +89,7 @@
     </script>
     <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" aria-dropeffect="" crossorigin="anonymous"></script>
     <script defer src="{{js "scripts.min.js"}}"></script>
-
+    {{!-- If the page contains a picture gallery load the Photoswipe Gallery script --}}
     {{#is "post"}}
        {{#post}}
           {{#if hasGallery}}
@@ -97,13 +97,15 @@
           {{/if}}
       {{/post}}
     {{/is}}
-    
+    {{!-- Solution for SVGs not displaying in Chrome; applies only to Preview mode --}}
     {{#if @renderer.previewMode}}
         <script defer src="{{js "svg2js.js"}}"></script>
         <script defer src="{{js "svg-fix.js"}}"></script>
     {{/if}}
-
+    {{!-- Insert some custom code by Custom HTML tool --}}
     {{{@footerCustomCode}}}
+    {{!-- GDPR Cookie popup generated natively by Publii app --}}
+    {{{ publiiFooter }}}
 
 </body>
 </html>

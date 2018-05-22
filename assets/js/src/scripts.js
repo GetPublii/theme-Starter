@@ -30,28 +30,6 @@
      */
     document.addEventListener("touchend", function() {});
 
-    /**
-     * EU Cookie Law Bar
-     */
-    $(window).on("load", function () {
-        var cookieBar = $('.js-cookie-bar');
-
-        if (!cookieBar.length) {
-            return;
-        }
-
-        var cookieBarClose = cookieBar.find('.cookie-bar__close');
-
-        cookieBarClose.on('click', function (event) {
-            event.preventDefault();
-            localStorage.setItem('themes-cookie-bar', true);
-            cookieBar.removeClass('is-sticky');
-        });
-
-        if (!localStorage.getItem('themes-cookie-bar')) {
-            cookieBar.addClass('is-sticky');
-        }
-    });
 
     /**
      * Share buttons pop-up

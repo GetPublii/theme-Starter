@@ -77,11 +77,8 @@ var generateOverride = function (params) {
         [type=submit],
         button {
                background: ${params.primaryColor};
-        }`;
-    }
+        }
 
-    if(params.primaryColor !== '#3949ab') {
-        output += `
         [type=text]:focus,
         [type=url]:focus,
         [type=tel]:focus,
@@ -92,43 +89,34 @@ var generateOverride = function (params) {
         select:focus {
                -webkit-box-shadow: inset 0 0 2px ${params.primaryColor};
                box-shadow: inset 0 0 2px ${params.primaryColor};
-        }`;
-    }
+        }
 
-    if(params.primaryColor !== '#3949ab') {
-        output += `
-        [type=checkbox]:checked+.checkbox:before {
-               color: ${params.primaryColor};
-        }`;
-    }
+        input[type=checkbox]:checked + label:before {
+               background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 8'%3e%3cpolygon points='9.53 0 4.4 5.09 1.47 2.18 0 3.64 2.93 6.54 4.4 8 5.87 6.54 11 1.46 9.53 0' fill='${params.primaryColor.replace('#', '%23')}'/%3e%3c/svg%3e");
+        }
 
-    if(params.primaryColor !== '#3949ab') {
-        output += `
-        [type=radio]:checked + .radio:before {
-               background: ${params.primaryColor};
-        }`;
-    }
+        input[type=radio]:checked + label:before {
+               background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3ccircle cx='4' cy='4' r='4' fill='${params.primaryColor.replace('#', '%23')}'/%3e%3c/svg%3e"); 
+        }
 
-    if(params.primaryColor !== '#3949ab') {
-        output += `
         select[multiple]:focus {
                border-color: ${params.primaryColor};
-        }`;
-    }
+        }
 
-    if(params.primaryColor !== '#3949ab') {
-        output += `
         .box__title {
                color: ${params.primaryColor};
+        }
+
+        .page-header__title {
+               color: ${params.primaryColor};
+        }
+
+        .cookie-popup,
+        .cookie-popup__save {
+               background: ${params.primaryColor};  
         }`;
     }
 
-    if(params.primaryColor !== '#3949ab') {
-        output += `
-        .page-header__title {
-               color: ${params.primaryColor};
-        }`;
-    }
 
     if(params.mainWidth !== '42rem' || params.sidebarWidth !== '20rem') {
         output += `

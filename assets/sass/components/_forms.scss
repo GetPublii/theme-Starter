@@ -49,48 +49,49 @@ select {
 	}
 }
 
-[type=checkbox],
-[type=radio] {
-	display: none;
-	+label {
-		display: inline-block;
-		cursor: pointer;
-		top: 0;
-		margin-right: baseline(6);
-	}
+input[type=checkbox],
+input[type=radio] {
+    opacity: 0;
+    position: absolute;
+
+    & + label {
+        position: relative;
+        margin-left: -1px;
+        cursor: pointer;
+        padding: 0;
+
+        &:before {
+            background-color: $color-input-bg;
+            border: 1px solid $color-input-border;
+            border-radius: 2px;
+            content: '';
+            display: inline-block;
+            height: baseline(5);
+            line-height: baseline(5);
+            margin-right: baseline(4);
+            vertical-align: middle;
+            text-align: center;
+            width: baseline(5); 
+        }
+    }
+    &:checked + label:before {
+        content: "";
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 8'%3e%3cpolygon points='9.53 0 4.4 5.09 1.47 2.18 0 3.64 2.93 6.54 4.4 8 5.87 6.54 11 1.46 9.53 0' fill='%233949ab'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-size: 11px 8px;
+        background-position: 50% 50%;
+    }
 }
 
-.checkbox,
-.radio {
-	&:before {
-		border: 1px solid $color-input-border;
-		border-radius: 2px;
-		content: "";
-		display: inline-block;
-		height: baseline(5);
-		line-height: baseline(5);
-		margin-right: baseline(4);
-		vertical-align: middle;
-		text-align: center;
-		width: baseline(5);
-	}
-}
-
-.radio:before {
-	border-radius: 50%;
-}
-
-[type=checkbox]:checked+.checkbox:before {
-	content: "\2713";
-	color: $color-input-bg-color;
-	font-weight: $font-weight-bold;
-}
-
-[type=radio]:checked+.radio:before {
-	box-shadow: inset 0 0 0 4px $color-input-bg;
-	content: "";
-	background: $color-input-bg-color;
-	border: 1px solid $color-input-border;
+input[type=radio] {
+    & + label {
+        &:before {
+            border-radius: 50%;
+        }
+    }
+    &:checked + label:before {
+       background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3ccircle cx='4' cy='4' r='4' fill='%233949ab'/%3e%3c/svg%3e");
+    }
 }
 
 [type=file] {
