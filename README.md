@@ -1,6 +1,6 @@
 # Publii Starter Theme
 
-Version: 1.0.3.0
+Version: 1.0.4.0
 
 ![Starter theme screenshot](starter-publii-theme.png)
 
