@@ -84,10 +84,11 @@
                    <h2 class="article__title">
                         <a href="{{url}}">{{title}}</a>
                     </h2>
-                    {{#if excerpt}}
-                        <p>{{{excerpt}}}</p>
-                    {{/if}}
-
+                   {{#if hasCustomExcerpt}}
+                        {{{ excerpt }}}
+                   {{else}}
+                        <p>{{{ excerpt }}}</p>
+                   {{/if}}
                     <p class="article__meta u-small">
                         {{#author}}
                             <a href="{{url}}" title="{{name}}">
