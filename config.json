@@ -1033,7 +1033,7 @@
         },
         {
             "name": "displayPostNavigation",
-            "label": "Display post naviagtion",
+            "label": "Display post navigation",
             "value": 1,
             "type": "select",
             "options": [
