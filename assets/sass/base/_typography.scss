@@ -2,6 +2,10 @@
 
 html {
 	@include fluid-type(font-size, $minScreen, $maxScreen, map-get($font, min), map-get($font, max));
+     font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -10,6 +14,7 @@ body {
 	font-family: $body;
 	font-weight: $font-weight-normal;
 	line-height: $line-height;
+    overscroll-behavior: none; 
 }
 
 a {
