@@ -2,6 +2,8 @@
 
 Version: 1.0.6.0
 
+**NOTE:** This theme is not supported anymore, to get started with building a Publii theme, you can try out the [Blank](https://github.com/GetPublii/theme-Blank) theme.
+
 ![Starter theme screenshot](starter-publii-theme.png)
 
 The Starter theme for Publii. A flexible, CSS Grid Layout based expandable template that's perfect for users looking to get a headstart on their Publii theme development adventure, with all you need to craft your very own custom layouts and styles.
